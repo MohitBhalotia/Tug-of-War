@@ -1,8 +1,13 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import Register from './Register'
+import Questions from './Questions'
 const Quiz = () => {
+  const [registered, setRegistered] = useState(localStorage.getItem("register") === "true" )
+  
   return (
-    <div>Quiz</div>
+    <div>
+      {registered ? <Questions/> : <Register setRegistered={setRegistered}/> }
+    </div>
   )
 }
 
