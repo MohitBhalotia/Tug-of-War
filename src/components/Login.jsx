@@ -38,6 +38,9 @@ export default function InputOTPForm({ setAuth }) {
     if (data.pin === accessCode) {
       toast.success("Login Successful");
       setAuth(true);
+      localStorage.setItem("register", false);
+      localStorage.setItem("team1", "");
+      localStorage.setItem("team2", "");
       localStorage.setItem("auth", true);
     }
     else{
