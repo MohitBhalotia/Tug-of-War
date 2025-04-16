@@ -1,0 +1,501 @@
+{
+    "technical_questions_json": {
+        "quiz": [
+            {
+                "question": "Which data structure is used for implementing recursion?",
+                "options": [
+                    "Queue",
+                    "Stack",
+                    "Linked List",
+                    "Tree"
+                ],
+                "correctOption": 1,
+                "explanation": "A stack is used to manage function calls in recursion."
+            },
+            {
+                "question": "What is the worst-case time complexity of QuickSort?",
+                "options": [
+                    "O(n)",
+                    "O(n log n)",
+                    "O(n²)",
+                    "O(log n)"
+                ],
+                "correctOption": 2,
+                "explanation": "QuickSort degrades to O(n²) when the pivot selection is poor."
+            },
+            {
+                "question": "Which protocol is used for secure communication over a computer network?",
+                "options": [
+                    "HTTP",
+                    "FTP",
+                    "HTTPS",
+                    "SMTP"
+                ],
+                "correctOption": 2,
+                "explanation": "HTTPS uses TLS/SSL to encrypt data."
+            },
+            {
+                "question": "What is the main purpose of an index in a database?",
+                "options": [
+                    "To store data",
+                    "To speed up queries",
+                    "To enforce constraints",
+                    "To backup data"
+                ],
+                "correctOption": 1,
+                "explanation": "Indexes improve query performance by reducing the search space."
+            },
+            {
+                "question": "Which of these is NOT a characteristic of a NoSQL database?",
+                "options": [
+                    "Schema-less",
+                    "Horizontal scaling",
+                    "ACID transactions",
+                    "Flexible data models"
+                ],
+                "correctOption": 2,
+                "explanation": "NoSQL databases typically sacrifice ACID properties for scalability."
+            },
+            {
+                "question": "What does the 'S' stand for in SOLID principles?",
+                "options": [
+                    "Structured",
+                    "Single Responsibility",
+                    "Secure",
+                    "Scalable"
+                ],
+                "correctOption": 1,
+                "explanation": "Single Responsibility Principle states a class should have only one reason to change."
+            },
+            {
+                "question": "Which algorithm is used for cycle detection in a graph?",
+                "options": [
+                    "Dijkstra's",
+                    "Floyd-Warshall",
+                    "Union-Find",
+                    "Kruskal's"
+                ],
+                "correctOption": 2,
+                "explanation": "Union-Find (Disjoint Set Union) efficiently detects cycles in undirected graphs."
+            },
+            {
+                "question": "What is the purpose of the 'volatile' keyword in Java?",
+                "options": [
+                    "To make a variable constant",
+                    "To prevent thread caching",
+                    "To improve performance",
+                    "To allow null values"
+                ],
+                "correctOption": 1,
+                "explanation": "Volatile ensures reads/writes go directly to main memory, preventing thread-local caching."
+            },
+            {
+                "question": "Which of these is NOT a valid HTTP status code?",
+                "options": [
+                    "200",
+                    "404",
+                    "503",
+                    "699"
+                ],
+                "correctOption": 3,
+                "explanation": "HTTP status codes don't extend to 699 (they go up to 599)."
+            },
+            {
+                "question": "What is the space complexity of Merge Sort?",
+                "options": [
+                    "O(1)",
+                    "O(log n)",
+                    "O(n)",
+                    "O(n²)"
+                ],
+                "correctOption": 2,
+                "explanation": "Merge Sort requires O(n) additional space for merging."
+            },
+            {
+                "question": "Which design pattern ensures only one instance of a class exists?",
+                "options": [
+                    "Factory",
+                    "Observer",
+                    "Singleton",
+                    "Decorator"
+                ],
+                "correctOption": 2,
+                "explanation": "The Singleton pattern restricts instantiation to one object."
+            },
+            {
+                "question": "What is the primary use of the 'finally' block in exception handling?",
+                "options": [
+                    "To handle exceptions",
+                    "To catch specific exceptions",
+                    "To execute code regardless of exceptions",
+                    "To throw new exceptions"
+                ],
+                "correctOption": 2,
+                "explanation": "Finally blocks execute whether an exception occurs or not."
+            },
+            {
+                "question": "Which of these is NOT a valid REST constraint?",
+                "options": [
+                    "Stateless",
+                    "Cacheable",
+                    "Client-Server",
+                    "Synchronous"
+                ],
+                "correctOption": 3,
+                "explanation": "REST doesn't require synchronous communication."
+            },
+            {
+                "question": "What does the CAP theorem state about distributed systems?",
+                "options": [
+                    "They must be Consistent, Available, and Partition-tolerant",
+                    "They can only guarantee two of Consistency, Availability, and Partition-tolerance",
+                    "They must prioritize Consistency over all else",
+                    "They cannot be both Consistent and Available"
+                ],
+                "correctOption": 1,
+                "explanation": "CAP theorem states you can only guarantee two out of three properties."
+            },
+            {
+                "question": "Which of these is NOT a JavaScript framework?",
+                "options": [
+                    "React",
+                    "Angular",
+                    "Vue",
+                    "Flask"
+                ],
+                "correctOption": 3,
+                "explanation": "Flask is a Python web framework, not JavaScript."
+            },
+            {
+                "question": "What is the purpose of garbage collection?",
+                "options": [
+                    "To allocate memory",
+                    "To free unused memory",
+                    "To optimize CPU usage",
+                    "To manage threads"
+                ],
+                "correctOption": 1,
+                "explanation": "Garbage collection automatically reclaims memory no longer in use."
+            },
+            {
+                "question": "Which algorithm is used for page replacement in operating systems?",
+                "options": [
+                    "Round Robin",
+                    "LRU",
+                    "FIFO",
+                    "Both B and C"
+                ],
+                "correctOption": 3,
+                "explanation": "Both LRU (Least Recently Used) and FIFO are page replacement algorithms."
+            },
+            {
+                "question": "What is the main advantage of using a CDN?",
+                "options": [
+                    "Improved security",
+                    "Faster content delivery",
+                    "Better database performance",
+                    "Reduced development time"
+                ],
+                "correctOption": 1,
+                "explanation": "CDNs cache content closer to users for faster delivery."
+            },
+            {
+                "question": "Which of these is NOT a valid time complexity class?",
+                "options": [
+                    "O(n!)",
+                    "O(n log n)",
+                    "O(2n)",
+                    "O(1/n)"
+                ],
+                "correctOption": 3,
+                "explanation": "O(1/n) is not a valid time complexity class."
+            },
+            {
+                "question": "What is the purpose of the 'this' keyword in JavaScript?",
+                "options": [
+                    "To refer to the current function",
+                    "To refer to the parent object",
+                    "To refer to the global object",
+                    "It depends on the execution context"
+                ],
+                "correctOption": 3,
+                "explanation": "'this' in JavaScript depends on how a function is called."
+            },
+            {
+                "question": "Which of these is NOT a valid database join type?",
+                "options": [
+                    "INNER JOIN",
+                    "OUTER JOIN",
+                    "CROSS JOIN",
+                    "LOOP JOIN"
+                ],
+                "correctOption": 3,
+                "explanation": "LOOP JOIN is not a standard SQL join type."
+            },
+            {
+                "question": "What is the main purpose of Docker?",
+                "options": [
+                    "Virtualization",
+                    "Containerization",
+                    "Cloud storage",
+                    "Load balancing"
+                ],
+                "correctOption": 1,
+                "explanation": "Docker packages applications into containers for consistent deployment."
+            },
+            {
+                "question": "Which of these is NOT a valid primitive data type in Java?",
+                "options": [
+                    "int",
+                    "boolean",
+                    "string",
+                    "char"
+                ],
+                "correctOption": 2,
+                "explanation": "String is a class, not a primitive type in Java."
+            },
+            {
+                "question": "What is the purpose of the 'virtual' keyword in C++?",
+                "options": [
+                    "To prevent inheritance",
+                    "To enable polymorphism",
+                    "To improve performance",
+                    "To make a function inline"
+                ],
+                "correctOption": 1,
+                "explanation": "Virtual enables dynamic dispatch for polymorphic behavior."
+            },
+            {
+                "question": "Which of these is NOT a valid cloud service model?",
+                "options": [
+                    "IaaS",
+                    "PaaS",
+                    "SaaS",
+                    "FaaS"
+                ],
+                "correctOption": 3,
+                "explanation": "All are valid (Infrastructure/Platform/Software/Function as a Service)."
+            },
+            {
+                "question": "What is the purpose of the 'git rebase' command?",
+                "options": [
+                    "To merge branches",
+                    "To rewrite commit history",
+                    "To create new branches",
+                    "To undo commits"
+                ],
+                "correctOption": 1,
+                "explanation": "Rebase rewrites commit history by moving or combining commits."
+            },
+            {
+                "question": "Which of these is NOT a valid design pattern category?",
+                "options": [
+                    "Creational",
+                    "Structural",
+                    "Behavioral",
+                    "Functional"
+                ],
+                "correctOption": 3,
+                "explanation": "Functional is not one of the classic Gang of Four pattern categories."
+            },
+            {
+                "question": "What is the purpose of the 'finally' block in try-catch-finally?",
+                "options": [
+                    "To handle exceptions",
+                    "To execute code regardless of exceptions",
+                    "To catch specific exceptions",
+                    "To throw new exceptions"
+                ],
+                "correctOption": 1,
+                "explanation": "Finally blocks execute whether an exception occurs or not."
+            },
+            {
+                "question": "Which of these is NOT a valid JavaScript data type?",
+                "options": [
+                    "undefined",
+                    "null",
+                    "symbol",
+                    "character"
+                ],
+                "correctOption": 3,
+                "explanation": "JavaScript doesn't have a 'character' type (it's part of strings)."
+            },
+            {
+                "question": "What is the purpose of the 'HEAD' in Git?",
+                "options": [
+                    "The first commit",
+                    "The current branch reference",
+                    "The remote repository",
+                    "The staging area"
+                ],
+                "correctOption": 1,
+                "explanation": "HEAD points to the current branch reference or commit."
+            },
+            {
+                "question": "Which of these is NOT a valid CSS positioning value?",
+                "options": [
+                    "static",
+                    "relative",
+                    "fixed",
+                    "floating"
+                ],
+                "correctOption": 3,
+                "explanation": "'floating' is not a CSS position value (though 'float' is a property)."
+            },
+            {
+                "question": "What is the purpose of the 'map' function in functional programming?",
+                "options": [
+                    "To filter elements",
+                    "To transform each element",
+                    "To reduce elements to a single value",
+                    "To sort elements"
+                ],
+                "correctOption": 1,
+                "explanation": "Map applies a function to each element, producing a new collection."
+            },
+            {
+                "question": "Which of these is NOT a valid React hook?",
+                "options": [
+                    "useState",
+                    "useEffect",
+                    "useContext",
+                    "useComponent"
+                ],
+                "correctOption": 3,
+                "explanation": "'useComponent' is not a standard React hook."
+            },
+            {
+                "question": "What is the purpose of the 'z-index' in CSS?",
+                "options": [
+                    "Horizontal positioning",
+                    "Vertical stacking order",
+                    "Element sizing",
+                    "Animation control"
+                ],
+                "correctOption": 1,
+                "explanation": "z-index controls the stacking order of positioned elements."
+            },
+            {
+                "question": "Which of these is NOT a valid Python interpreter?",
+                "options": [
+                    "CPython",
+                    "Jython",
+                    "IronPython",
+                    "Python.NET"
+                ],
+                "correctOption": 3,
+                "explanation": "Python.NET is not a standard Python implementation."
+            },
+            {
+                "question": "What is the purpose of the 'finally' block in exception handling?",
+                "options": [
+                    "To handle exceptions",
+                    "To catch specific exceptions",
+                    "To execute code regardless of exceptions",
+                    "To throw new exceptions"
+                ],
+                "correctOption": 2,
+                "explanation": "Finally blocks execute whether an exception occurs or not."
+            },
+            {
+                "question": "Which of these is NOT a valid HTTP method?",
+                "options": [
+                    "GET",
+                    "POST",
+                    "FETCH",
+                    "DELETE"
+                ],
+                "correctOption": 2,
+                "explanation": "FETCH is not an HTTP method (though it's a JavaScript API)."
+            },
+            {
+                "question": "What is the purpose of the 'abstract' keyword in Java?",
+                "options": [
+                    "To prevent instantiation",
+                    "To force subclass implementation",
+                    "Both A and B",
+                    "To improve performance"
+                ],
+                "correctOption": 2,
+                "explanation": "Abstract classes can't be instantiated and may contain abstract methods requiring implementation."
+            },
+            {
+                "question": "Which of these is NOT a valid SQL constraint?",
+                "options": [
+                    "PRIMARY KEY",
+                    "FOREIGN KEY",
+                    "ALTER KEY",
+                    "UNIQUE"
+                ],
+                "correctOption": 2,
+                "explanation": "ALTER KEY is not a valid SQL constraint."
+            },
+            {
+                "question": "What is the purpose of the 'defer' attribute in JavaScript?",
+                "options": [
+                    "To delay script execution",
+                    "To make a variable constant",
+                    "To handle promises",
+                    "To prevent hoisting"
+                ],
+                "correctOption": 0,
+                "explanation": "Defer makes scripts execute after HTML parsing is complete."
+            },
+            {
+                "question": "Which of these is NOT a valid binary tree traversal method?",
+                "options": [
+                    "In-order",
+                    "Pre-order",
+                    "Post-order",
+                    "Round-order"
+                ],
+                "correctOption": 3,
+                "explanation": "Round-order is not a standard traversal method."
+            },
+            {
+                "question": "What is the purpose of the 'strict mode' in JavaScript?",
+                "options": [
+                    "To enforce stricter syntax rules",
+                    "To improve performance",
+                    "To enable experimental features",
+                    "To disable hoisting"
+                ],
+                "correctOption": 0,
+                "explanation": "Strict mode catches common coding mistakes and unsafe actions."
+            },
+            {
+                "question": "Which of these is NOT a valid Python magic method?",
+                "options": [
+                    "__init__",
+                    "__str__",
+                    "__len__",
+                    "__loop__"
+                ],
+                "correctOption": 3,
+                "explanation": "__loop__ is not a standard Python magic method."
+            },
+            {
+                "question": "What is the purpose of the 'async/await' syntax in JavaScript?",
+                "options": [
+                    "To create synchronous code",
+                    "To handle asynchronous operations",
+                    "To improve performance",
+                    "To prevent callback hell"
+                ],
+                "correctOption": 1,
+                "explanation": "async/await provides cleaner syntax for working with promises."
+            },
+            {
+                "question": "Which of these is NOT a valid complexity class in computational theory?",
+                "options": [
+                    "P",
+                    "NP",
+                    "XP",
+                    "ZP"
+                ],
+                "correctOption": 3,
+                "explanation": "ZP is not a standard complexity class (P, NP, XP are valid)."
+            }
+        ]
+    }
+}
