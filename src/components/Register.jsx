@@ -54,7 +54,7 @@ export default function Register({ setRegistered }) {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto shadow-xl border border-slate-800 rounded-2xl bg-slate-900 text-white">
+    <Card className="w-full max-w-xl shadow-xl border border-slate-800 rounded-2xl bg-slate-900 text-white">
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold text-white text-center my-4">
           Register Teams

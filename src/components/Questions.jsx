@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import questions from "../../questions_40.json";
+import TugOfWarQuiz from "./TugOfWar";
 
 const Questions = () => {
   const [questionsMain, setQuestions] = useState([]);
   const [question1, setQuestion1] = useState({});
   const [selected1, setSelected1] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [lastCorrectTeam, setLastCorrectTeam] = useState(null);
 
   const [arr, setArr] = useState([]);
   const [teamTurn, setTeamTurn] = useState(true); // true = Team 1, false = Team 2
@@ -16,9 +18,9 @@ const Questions = () => {
 
   const [loading, setloadingnext] = useState(false);
   const [countdown, setCountdown] = useState(5);
-  
-  
-  
+
+
+
   const team1name = localStorage.getItem("team1");
   const team2name = localStorage.getItem("team2");
   useEffect(() => {
@@ -59,6 +61,7 @@ const Questions = () => {
     setQuestion1(allQuestions[q1index]);
     setSelected1("");
     setSubmitted(false);
+    setLastCorrectTeam(null); // Reset the last correct team when fetching new question
   };
 
   const handleSubmit = () => {
@@ -69,20 +72,22 @@ const Questions = () => {
           localStorage.setItem("team1Score", updated);
           return updated;
         });
+        setLastCorrectTeam("A");
       } else if (chooseteam === "team2") {
         setScoreTeam2((prev) => {
           const updated = prev + 1;
           localStorage.setItem("team2Score", updated);
           return updated;
         });
+        setLastCorrectTeam("B");
       }
+    } else {
+      setLastCorrectTeam(null);
     }
 
     setSubmitted(true);
-
     setloadingnext(true);
     setCountdown(10);
-    // setloadingnext(true);
 
     let interval = setInterval(() => {
       setCountdown((prev) => {
@@ -108,12 +113,11 @@ const Questions = () => {
     setchooseteam("team2");
     setvoted(true);
   };
-  
+
   return (
     <div className="text-gray-700 p-4 max-w-xl mx-auto">
-      {/* <h2 className="text-xl font-bold mb-4">
-        {teamTurn ? "Team 1" : "Team 2"}'s Turn
-      </h2> */}
+      <TugOfWarQuiz teamAnswering={lastCorrectTeam} />
+
       <p className="mb-4">
         🟦 Team {team1name} Score: {scoreTeam1} | 🟥 Team {team2name} Score: {scoreTeam2}
       </p>
@@ -122,7 +126,7 @@ const Questions = () => {
         onClick={fetchQuestion}
         className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
       >
-        {question1 ?  <div>Start Quiz main</div> : <div>Start Quiz</div>}
+        {question1 ? <div>Start Quiz main</div> : <div>Start Quiz</div>}
       </button>
 
       {question1?.question && (
@@ -150,21 +154,19 @@ const Questions = () => {
             </h3>
             {/* <select name="" id=""> */}
             <button
-              className={` text-white px-4 py-2 rounded hover:bg-blue-700 m-2 cursor-pointer ${
-                voted && chooseteam === "team1"
-                  ? "bg-gray-500 border-2 border-white"
-                  : "bg-blue-600"
-              }`}
+              className={` text-white px-4 py-2 rounded hover:bg-blue-700 m-2 cursor-pointer ${voted && chooseteam === "team1"
+                ? "bg-gray-500 border-2 border-white"
+                : "bg-blue-600"
+                }`}
               onClick={voteteam1}
             >
               {team1name}
             </button>
             <button
-              className={` text-white px-4 py-2 rounded hover:bg-red-500 m-2 cursor-pointer ${
-                voted && chooseteam === "team2"
-                  ? "bg-gray-500 border-2 border-white"
-                  : "bg-red-600"
-              } `}
+              className={` text-white px-4 py-2 rounded hover:bg-red-500 m-2 cursor-pointer ${voted && chooseteam === "team2"
+                ? "bg-gray-500 border-2 border-white"
+                : "bg-red-600"
+                } `}
               onClick={voteteam2}
             >
               {team2name}
@@ -183,7 +185,7 @@ const Questions = () => {
         </button>
       )}
 
-    
+
 
       {loading && (
         <div
@@ -215,20 +217,20 @@ const Questions = () => {
                     ✅ Correct +1 for{" "}
                     <strong>
                       {chooseteam === "team1" ? team1name : team2name}
-                      
+
                     </strong>
                     <p>Explanation : {question1.explanation}</p>
                   </>
                 ) : (
                   <>
-                    ❌ Incorrect 
+                    ❌ Incorrect
                     <br />
                     Correct Answer : {" "}
                     <strong>
                       {question1.options[question1.correctOption]}
                     </strong>
-                  <p>Explanation : {question1.explanation}</p>
-                    
+                    <p>Explanation : {question1.explanation}</p>
+
                   </>
                 )}
               </p>
