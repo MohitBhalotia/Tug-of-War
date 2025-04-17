@@ -330,7 +330,7 @@ const Questions = ({ setAuth, setRegistered }) => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="text-center mt-2">
+                <div className="text-center mt-4">
                   <button
                     onClick={handleSubmit}
                     className="bg-green-600 text-white px-6 py-2 rounded-lg text-base font-semibold shadow-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
