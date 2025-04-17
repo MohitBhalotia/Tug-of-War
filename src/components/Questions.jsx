@@ -274,8 +274,8 @@ const Questions = ({ setAuth, setRegistered }) => {
 
             {/* Question Section */}
             {question1?.question && (
-              <div className="bg-white rounded-lg shadow-lg p-3 flex-1 overflow-y-auto">
-                <h3 className="text-lg font-bold text-gray-800 mb-1">Question:</h3>
+              <div className="bg-white rounded-lg shadow-lg p-3 flex-1 overflow-y-auto px-10">
+                <h3 className="text-lg font-bold text-gray-800 mb-1 py-2 ">Question:</h3>
                 <p className="text-base text-gray-700 mb-2">{question1.question}</p>
 
                 {/* Options */}
@@ -303,13 +303,13 @@ const Questions = ({ setAuth, setRegistered }) => {
                 </div>
 
                 {/* Team Selection */}
-                <div className="mb-2">
-                  <h3 className="text-base font-semibold text-gray-700 mb-1">
+                <div className="mb-2 mt-4">
+                  <h3 className="text-base font-semibold text-gray-700 mb-1 mt-2">
                     Choose Team to Answer:
                   </h3>
-                  <div className="flex gap-2">
+                  <div className="flex gap-10 px-10 mt-4">
                     <button
-                      className={`flex-1 py-2 px-4 rounded-lg text-white text-sm font-semibold transition-colors ${voted && chooseteam === "team1"
+                      className={`flex-1 py-2  rounded-lg text-white text-sm font-semibold transition-colors ${voted && chooseteam === "team1"
                           ? "bg-gray-400"
                           : "bg-blue-600 hover:bg-blue-700"
                         }`}
@@ -318,7 +318,7 @@ const Questions = ({ setAuth, setRegistered }) => {
                       {team1name}
                     </button>
                     <button
-                      className={`flex-1 py-2 px-4 rounded-lg text-white text-sm font-semibold transition-colors ${voted && chooseteam === "team2"
+                      className={`flex-1 py-2  rounded-lg text-white text-sm font-semibold transition-colors ${voted && chooseteam === "team2"
                           ? "bg-gray-400"
                           : "bg-red-600 hover:bg-red-700"
                         }`}
@@ -330,7 +330,7 @@ const Questions = ({ setAuth, setRegistered }) => {
                 </div>
 
                 {/* Submit Button */}
-                <div className="text-center">
+                <div className="text-center mt-2">
                   <button
                     onClick={handleSubmit}
                     className="bg-green-600 text-white px-6 py-2 rounded-lg text-base font-semibold shadow-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
