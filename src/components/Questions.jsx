@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import questions from "../../questions_40.json";
 import TugOfWarQuiz from "./TugOfWar";
 
-const Questions = () => {
+const Questions = ({ setAuth, setRegistered }) => {
   const [questionsMain, setQuestions] = useState([]);
   const [question1, setQuestion1] = useState({});
   const [selected1, setSelected1] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [lastCorrectTeam, setLastCorrectTeam] = useState(null);
+  const [tugOfWarWinner, setTugOfWarWinner] = useState(null);
 
   const [arr, setArr] = useState([]);
   const [teamTurn, setTeamTurn] = useState(true); // true = Team 1, false = Team 2
@@ -19,12 +20,14 @@ const Questions = () => {
   const [loading, setloadingnext] = useState(false);
   const [countdown, setCountdown] = useState(5);
 
-
+  const [isPaused, setIsPaused] = useState(false);
+  const [intervalId, setIntervalId] = useState(null);
 
   const team1name = localStorage.getItem("team1");
   const team2name = localStorage.getItem("team2");
 
-  const [refresh,setrefresh]=useState(false)
+  const [refresh, setrefresh] = useState(false);
+
   useEffect(() => {
     // Load existing scores and used questions from localStorage
     const savedTeam1 = parseInt(localStorage.getItem("team1Score")) || 0;
@@ -37,8 +40,64 @@ const Questions = () => {
     setArr(savedQuestions);
   }, []);
 
+  // Listen for winner changes from TugOfWar component
+  useEffect(() => {
+    const checkWinner = () => {
+      const ropePosition = parseInt(localStorage.getItem("ropePosition")) || 0;
+      if (ropePosition <= -50) {
+        setTugOfWarWinner(team1name);
+      } else if (ropePosition >= 50) {
+        setTugOfWarWinner(team2name);
+      } else {
+        setTugOfWarWinner(null);
+      }
+    };
+
+    // Check initially
+    checkWinner();
+
+    // Set up an interval to check periodically
+    const interval = setInterval(checkWinner, 1000);
+
+    return () => clearInterval(interval);
+  }, [team1name, team2name]);
+
+  const handleResetQuiz = () => {
+    // Clear registration and team data
+    localStorage.removeItem("register");
+    localStorage.removeItem("team1");
+    localStorage.removeItem("team2");
+    localStorage.removeItem("team1Score");
+    localStorage.removeItem("team2Score");
+    localStorage.removeItem("prevquestions");
+    localStorage.removeItem("ropePosition");
+    setRegistered(false);
+    window.location.replace(window.location.href);
+  };
+
+  const handleLogout = () => {
+    // Clear everything from localStorage
+    localStorage.clear();
+    setAuth(false);
+
+    window.location.replace(window.location.href);
+  };
+
+  const handleRestartQuiz = () => {
+    // Reset scores and rope position
+    localStorage.setItem("team1Score", "0");
+    localStorage.setItem("team2Score", "0");
+    localStorage.removeItem("ropePosition");
+    localStorage.removeItem("prevquestions");
+    setScoreTeam1(0);
+    setScoreTeam2(0);
+    setLastCorrectTeam(null);
+    setTugOfWarWinner(null);
+    window.location.replace(window.location.href);
+  };
+
   const fetchQuestion = () => {
-    setrefresh(true)
+    setrefresh(true);
     const allQuestions = questions.technical_questions_json.quiz;
     setQuestions(allQuestions);
 
@@ -89,158 +148,312 @@ const Questions = () => {
     }
 
     setSubmitted(true);
-    setloadingnext(true);
-    setCountdown(10);
 
-    let interval = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          fetchQuestion();
-          setTeamTurn((prev) => !prev);
-          setvoted(false);
-          setloadingnext(false);
-          return 10;
-        }
-        return prev - 1;
-      });
+    // Add delay before showing overlay to allow rope animation
+    setTimeout(() => {
+      setloadingnext(true);
+
+      // Only start countdown if there's no winner
+      if (!tugOfWarWinner) {
+        setCountdown(10);
+        setIsPaused(false);
+
+        const newInterval = setInterval(() => {
+          setCountdown((prev) => {
+            if (prev <= 1) {
+              clearInterval(newInterval);
+              fetchQuestion();
+              setTeamTurn((prev) => !prev);
+              setvoted(false);
+              setloadingnext(false);
+              return 10;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+        setIntervalId(newInterval);
+      }
     }, 1000);
   };
 
+  const togglePause = () => {
+    if (isPaused) {
+      // Resume timer
+      const newInterval = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            clearInterval(newInterval);
+            fetchQuestion();
+            setTeamTurn((prev) => !prev);
+            setvoted(false);
+            setloadingnext(false);
+            return 10;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      setIntervalId(newInterval);
+    } else {
+      // Pause timer
+      clearInterval(intervalId);
+    }
+    setIsPaused(!isPaused);
+  };
+
+  // Cleanup interval on component unmount
+  useEffect(() => {
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [intervalId]);
+
   const voteteam1 = () => {
     setchooseteam("team1");
-    // console.log("team 1")
     setvoted(true);
   };
+
   const voteteam2 = () => {
     setchooseteam("team2");
     setvoted(true);
   };
 
   return (
-    <div className="text-gray-700 p-4 max-w-xl mx-auto">
-      <TugOfWarQuiz teamAnswering={lastCorrectTeam} />
-
-      <p className="mb-4">
-        🟦 Team {team1name} Score: {scoreTeam1} | 🟥 Team {team2name} Score: {scoreTeam2}
-      </p>
-
-      <button
-        onClick={fetchQuestion}
-        className={`bg-blue-500 text-white px-4 py-2 rounded mb-4 ${refresh ? "hidden" : "block" } `}
-      >
-        Start quiz
-      </button>
-
-      {question1?.question && (
-        <div className="mb-6">
-          <h3 className="text-lg font-semibold mb-2 ">Question:</h3>
-          <p className="mb-4">{question1.question}</p>
-          {question1.options?.map((opt, index) => (
-            <div key={index} className="mb-2 ">
-              <label>
-                <input
-                  type="radio"
-                  name="q1"
-                  value={opt}
-                  checked={selected1 === opt}
-                  onChange={(e) => setSelected1(e.target.value)}
-                  disabled={submitted}
-                />{" "}
-                {opt}
-              </label>
+    <div className="h-screen bg-gray-50">
+      <div className="h-full px-4 py-4">
+        <div className="grid grid-cols-12 gap-6 h-full">
+          {/* Team A Column */}
+          <div className="col-span-2 bg-white rounded-lg shadow-lg p-4">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-blue-600 mb-2">
+                {team1name}
+              </h2>
+              <div className="text-6xl font-bold text-blue-700">
+                {scoreTeam1}
+              </div>
+              <p className="text-blue-500 text-lg">Points</p>
             </div>
-          ))}
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-2 text-gray-400  ">
-              Choose Team:
-            </h3>
-            {/* <select name="" id=""> */}
-            <button
-              className={` text-white px-4 py-2 rounded hover:bg-blue-700 m-2 cursor-pointer ${voted && chooseteam === "team1"
-                ? "bg-gray-500 border-2 border-white"
-                : "bg-blue-600"
+          </div>
+
+          {/* Middle Column - Game Content */}
+          <div className="col-span-8 flex flex-col">
+            {/* Action Buttons */}
+            <div className="flex justify-center gap-4 mb-4">
+              <button
+                onClick={handleRestartQuiz}
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-md transition-all duration-200"
+              >
+                Restart Quiz
+              </button>
+              <button
+                onClick={handleResetQuiz}
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-md transition-all duration-200"
+              >
+                Reset Quiz
+              </button>
+              <button
+                onClick={handleLogout}
+                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-md transition-all duration-200"
+              >
+                Logout
+              </button>
+            </div>
+
+            {/* Tug of War Component */}
+            <div className="mb-4">
+              <TugOfWarQuiz teamAnswering={lastCorrectTeam} />
+            </div>
+
+            {/* Start Quiz Button */}
+            <div className="text-center mb-4">
+              <button
+                onClick={fetchQuestion}
+                className={`bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-blue-700 transition-colors ${
+                  refresh ? "hidden" : "block"
                 }`}
-              onClick={voteteam1}
-            >
-              {team1name}
-            </button>
-            <button
-              className={` text-white px-4 py-2 rounded hover:bg-red-500 m-2 cursor-pointer ${voted && chooseteam === "team2"
-                ? "bg-gray-500 border-2 border-white"
-                : "bg-red-600"
-                } `}
-              onClick={voteteam2}
-            >
-              {team2name}
-            </button>
+              >
+                Start Quiz
+              </button>
+            </div>
+
+            {/* Question Section */}
+            {question1?.question && (
+              <div className="bg-white rounded-lg shadow-lg p-4 flex-1">
+                <h3 className="text-xl font-bold text-gray-800 mb-2">
+                  Question:
+                </h3>
+                <p className="text-lg text-gray-700 mb-4">
+                  {question1.question}
+                </p>
+
+                {/* Options */}
+                <div className="space-y-2 mb-4">
+                  {question1.options?.map((opt, index) => (
+                    <label
+                      key={index}
+                      className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-colors ${
+                        selected1 === opt
+                          ? "border-blue-500 bg-blue-50"
+                          : "border-gray-200 hover:border-blue-300"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="q1"
+                        value={opt}
+                        checked={selected1 === opt}
+                        onChange={(e) => setSelected1(e.target.value)}
+                        disabled={submitted}
+                        className="mr-3 h-5 w-5 text-blue-600"
+                      />
+                      <span className="text-base text-gray-700">{opt}</span>
+                    </label>
+                  ))}
+                </div>
+
+                {/* Team Selection */}
+                <div className="mb-4">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                    Choose Team to Answer:
+                  </h3>
+                  <div className="flex gap-4">
+                    <button
+                      className={`flex-1 py-3 px-6 rounded-lg text-white text-base font-semibold transition-colors ${
+                        voted && chooseteam === "team1"
+                          ? "bg-gray-400"
+                          : "bg-blue-600 hover:bg-blue-700"
+                      }`}
+                      onClick={voteteam1}
+                    >
+                      {team1name}
+                    </button>
+                    <button
+                      className={`flex-1 py-3 px-6 rounded-lg text-white text-base font-semibold transition-colors ${
+                        voted && chooseteam === "team2"
+                          ? "bg-gray-400"
+                          : "bg-red-600 hover:bg-red-700"
+                      }`}
+                      onClick={voteteam2}
+                    >
+                      {team2name}
+                    </button>
+                  </div>
+                </div>
+
+                {/* Submit Button */}
+                <div className="text-center">
+                  <button
+                    onClick={handleSubmit}
+                    className="bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    disabled={submitted || !selected1 || !chooseteam}
+                  >
+                    Submit Answer
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Team B Column */}
+          <div className="col-span-2 bg-white rounded-lg shadow-lg p-4">
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-red-600 mb-2">
+                {team2name}
+              </h2>
+              <div className="text-6xl font-bold text-red-700">
+                {scoreTeam2}
+              </div>
+              <p className="text-red-500 text-lg">Points</p>
+            </div>
           </div>
         </div>
-      )}
 
-      {question1?.question && (
-        <button
-          onClick={handleSubmit}
-          className="bg-green-500 text-white px-4 py-2 rounded cursor-pointer"
-          disabled={submitted || !selected1 || !chooseteam}
-        >
-          Submit Answer
-        </button>
-      )}
+        {/* Results Overlay */}
+        {loading && (
+          <div className="fixed inset-0 bg-white bg-opacity-95 flex flex-col items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-lg shadow-xl p-6 max-w-4xl w-full">
+              {tugOfWarWinner ? (
+                <div className="text-center py-8">
+                  <h2 className="text-5xl font-bold mb-4">
+                    {tugOfWarWinner} Wins!
+                  </h2>
+                  <p className="text-2xl text-gray-700 mb-6">
+                    Final Score: {scoreTeam1} - {scoreTeam2}
+                  </p>
+                  <button
+                    onClick={handleRestartQuiz}
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-xl font-semibold shadow-lg transition-all duration-200"
+                  >
+                    Play Again
+                  </button>
+                </div>
+              ) : (
+                <>
+                  <div className="flex items-center justify-between mb-4">
+                    <p className="text-2xl font-bold text-gray-800">
+                      Next question in:{" "}
+                      <span className="text-blue-600">{countdown}</span>
+                    </p>
+                    <button
+                      onClick={togglePause}
+                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-base"
+                    >
+                      {isPaused ? "Resume" : "Pause"}
+                    </button>
+                  </div>
 
-
-
-      {loading && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(255, 255, 255, 0.95)",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            zIndex: 9999,
-            fontSize: "2rem",
-            color: "#333",
-          }}
-        >
-          {/* choosen team is {chooseteam} */}
-          <p>Next question in: {countdown}</p>
-          {submitted && (
-            <div className="mt-6">
-              <h4 className="text-md font-bold">Results:</h4>
-              <p className="mt-2">
-                Q: You answered: <strong>{selected1}</strong> —{" "}
-                {selected1 === question1.options[question1.correctOption] ? (
-                  <>
-                    ✅ Correct +1 for{" "}
-                    <strong>
-                      {chooseteam === "team1" ? team1name : team2name}
-
-                    </strong>
-                    <p>Explanation : {question1.explanation}</p>
-                  </>
-                ) : (
-                  <>
-                    ❌ Incorrect
-                    <br />
-                    Correct Answer : {" "}
-                    <strong>
-                      {question1.options[question1.correctOption]}
-                    </strong>
-                    <p>Explanation : {question1.explanation}</p>
-
-                  </>
-                )}
-              </p>
+                  {submitted && (
+                    <div className="mt-4">
+                      <h4 className="text-2xl font-bold text-gray-800 mb-4">
+                        Results:
+                      </h4>
+                      <div className="bg-gray-50 rounded-lg p-4">
+                        <p className="text-lg mb-2">
+                          Your answer:{" "}
+                          <strong className="text-gray-800">{selected1}</strong>
+                        </p>
+                        {selected1 ===
+                        question1.options[question1.correctOption] ? (
+                          <div className="text-green-600">
+                            <p className="text-xl font-bold mb-2">
+                              ✅ Correct!
+                            </p>
+                            <p className="text-lg mb-2">
+                              +1 point for{" "}
+                              <strong className="text-gray-800">
+                                {chooseteam === "team1" ? team1name : team2name}
+                              </strong>
+                            </p>
+                            <p className="text-base text-gray-700">
+                              {question1.explanation}
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="text-red-600">
+                            <p className="text-xl font-bold mb-2">
+                              ❌ Incorrect
+                            </p>
+                            <p className="text-lg mb-2">
+                              Correct answer:{" "}
+                              <strong className="text-gray-800">
+                                {question1.options[question1.correctOption]}
+                              </strong>
+                            </p>
+                            <p className="text-base text-gray-700">
+                              {question1.explanation}
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
             </div>
-          )}
-        </div>
-      )}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

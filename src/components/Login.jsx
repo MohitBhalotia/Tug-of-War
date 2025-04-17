@@ -33,7 +33,7 @@ export default function InputOTPForm({ setAuth }) {
       pin: "",
     },
   });
-  const accessCode= import.meta.env.VITE_ACCESS_CODE
+  const accessCode = import.meta.env.VITE_ACCESS_CODE;
   const onSubmit = (data) => {
     if (data.pin === accessCode) {
       toast.success("Login Successful");
@@ -42,18 +42,19 @@ export default function InputOTPForm({ setAuth }) {
       localStorage.setItem("team1", "");
       localStorage.setItem("team2", "");
       localStorage.setItem("auth", true);
-    }
-    else{
+    } else {
       toast.error("Invalid Access Code");
     }
   };
 
   return (
-    <div className="flex items-center justify-center p-20 bg-gradient-to-br from-gray-950 to-gray-900 rounded-2xl">
-      <div className="w-full  rounded-2xl border border-gray-800 bg-gray-900 p-8 shadow-xl">
-        <h2 className="mb-6 text-2xl font-semibold text-white text-center">
-          Enter the Code
-        </h2>
+    <div className="h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h2>
+          <p className="text-gray-600">Enter your access code to continue</p>
+        </div>
+
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
@@ -61,65 +62,64 @@ export default function InputOTPForm({ setAuth }) {
               name="pin"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-md text-gray-300">
+                  <FormLabel className="text-gray-700 text-lg font-semibold">
                     Access Code
                   </FormLabel>
-                  <FormControl className="mt-4">
+                  <FormControl>
                     <InputOTP
                       maxLength={6}
                       {...field}
                       pattern={REGEXP_ONLY_DIGITS}
-                      className="  mt-4"
+                      className="mt-4"
                     >
-                      <InputOTPGroup className="gap-2">
+                      <InputOTPGroup className="gap-1">
                         <InputOTPSlot
                           index={0}
-                          className="h-16 w-16 text-lg rounded-xl border border-gray-700 bg-gray-800 text-white shadow-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                          className="h-13 w-13 text-xl rounded-lg border-2 border-gray-200 bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                         />
                         <InputOTPSlot
                           index={1}
-                          className="h-16 w-16 text-lg rounded-xl border border-gray-700 bg-gray-800 text-white shadow-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                          className="h-13 w-13 text-xl rounded-lg border-2 border-gray-200 bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                         />
                       </InputOTPGroup>
                       <InputOTPSeparator className="text-gray-400" />
-                      <InputOTPGroup className="gap-2">
+                      <InputOTPGroup className="gap-1">
                         <InputOTPSlot
                           index={2}
-                          className="h-16 w-16 text-lg rounded-xl border border-gray-700 bg-gray-800 text-white shadow-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                          className="h-13 w-13 text-xl rounded-lg border-2 border-gray-200 bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                         />
                         <InputOTPSlot
                           index={3}
-                          className="h-16 w-16 text-lg rounded-xl border border-gray-700 bg-gray-800 text-white shadow-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                          className="h-13 w-13 text-xl rounded-lg border-2 border-gray-200 bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                         />
                       </InputOTPGroup>
                       <InputOTPSeparator className="text-gray-400" />
-
-                      <InputOTPGroup className="gap-2">
+                      <InputOTPGroup className="gap-1">
                         <InputOTPSlot
                           index={4}
-                          className="h-16 w-16 text-lg rounded-xl border border-gray-700 bg-gray-800 text-white shadow-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                          className="h-13 w-13 text-xl rounded-lg border-2 border-gray-200 bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                         />
                         <InputOTPSlot
                           index={5}
-                          className="h-16 w-16 text-lg rounded-xl border border-gray-700 bg-gray-800 text-white shadow-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                          className="h-13 w-13 text-xl rounded-lg border-2 border-gray-200 bg-white text-gray-800 shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                         />
                       </InputOTPGroup>
                     </InputOTP>
                   </FormControl>
-                  <FormDescription className="text-md text-gray-400 text-center mt-4">
-                    Please enter the Access Code
+                  <FormDescription className="text-gray-500 text-center mt-4">
+                    Please enter the 6-digit access code
                   </FormDescription>
-                  <FormMessage className="text-md text-center mt-2"/>
+                  <FormMessage className="text-red-500 text-center mt-2" />
                 </FormItem>
               )}
             />
 
-            <div className="flex items-center justify-center mt-6">
+            <div className="flex items-center justify-center mt-8">
               <Button
                 type="submit"
-                className=" rounded-xl bg-blue-600 hover:bg-blue-700 transition-colors text-white text-lg py-6 px-6"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-200"
               >
-                Submit
+                Continue
               </Button>
             </div>
           </form>

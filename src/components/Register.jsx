@@ -13,13 +13,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
 const FormSchema = z.object({
   team1: z.string().min(2, {
@@ -40,7 +33,6 @@ export default function Register({ setRegistered }) {
   });
 
   const onSubmit = (data) => {
-    // Save team names to localStorage
     localStorage.setItem("team1", data.team1);
     localStorage.setItem("team2", data.team2);
     localStorage.setItem("register", "true");
@@ -49,68 +41,66 @@ export default function Register({ setRegistered }) {
       description: `${data.team1} vs ${data.team2}`,
     });
 
-    // Set auth to true to show the quiz
     setRegistered(true);
   };
 
   return (
-    <Card className="w-full max-w-xl shadow-xl border border-slate-800 rounded-2xl bg-slate-900 text-white">
-      <CardHeader className="space-y-1">
-        <CardTitle className="text-2xl font-bold text-white text-center my-4">
-          Register Teams
-        </CardTitle>
-        <CardDescription className="text-slate-400 text-md mt-2">
-          Enter the names of both teams to start the quiz
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
+    <div className="h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+        <div className="text-center mb-6">
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">Team Registration</h2>
+          <p className="text-gray-600">Enter the names of both teams to start the quiz</p>
+        </div>
+
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="team1"
               render={({ field }) => (
-                <FormItem className="mb-8">
-                  <FormLabel className="text-white text-lg">Team 1</FormLabel>
+                <FormItem>
+                  <FormLabel className="text-gray-700 text-lg font-semibold">Team 1</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="Enter name of team 1 "
-                      className="bg-slate-800 text-white border-slate-700 placeholder:text-slate-500"
+                      placeholder="Enter name of team 1"
+                      className="h-12 text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-500" />
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="team2"
               render={({ field }) => (
-                <FormItem className="mb-8">
-                  <FormLabel className="text-white text-lg">Team 2</FormLabel>
+                <FormItem>
+                  <FormLabel className="text-gray-700 text-lg font-semibold">Team 2</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter name of team 2"
-                      className="bg-slate-800 text-white border-slate-700 placeholder:text-slate-500"
+                      className="h-12 text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-500" />
                 </FormItem>
               )}
             />
-            <div className="w-full flex justify-center">
+
+            <div className="flex items-center justify-center mt-8">
               <Button
                 type="submit"
-                className=" bg-blue-600 hover:bg-blue-700 transition-colors text-xl p-6"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-200"
               >
                 Start Quiz
               </Button>
             </div>
           </form>
         </Form>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

@@ -10,6 +10,8 @@ export default function TugOfWarQuiz({ teamAnswering }) {
   // State to track winner and messages
   const [winner, setWinner] = useState(null);
   const [message, setMessage] = useState("");
+  const teamA=localStorage.getItem("team1");
+  const teamB=localStorage.getItem("team2");
 
   // Pull strength - how much the rope moves when a team answers correctly
   const pullStrength = 5;
@@ -34,11 +36,11 @@ export default function TugOfWarQuiz({ teamAnswering }) {
   // Check for winner when ropePosition changes
   useEffect(() => {
     if (ropePosition <= -50) {
-      setWinner("Team A");
-      setMessage("Team A wins!");
+      setWinner(teamA);
+      setMessage(`${teamA} wins!`);
     } else if (ropePosition >= 50) {
-      setWinner("Team B");
-      setMessage("Team B wins!");
+      setWinner(teamB);
+      setMessage(`${teamB} wins!`);
     }
   }, [ropePosition]);
 
@@ -57,10 +59,10 @@ export default function TugOfWarQuiz({ teamAnswering }) {
       {/* Team names and score display */}
       <div className="flex justify-between mb-4">
         <div className="text-2xl font-bold text-blue-600">
-          Team A {ropePosition <= -50 && "🏆"}
+           {teamA}{ropePosition <= -50 && "🏆"}
         </div>
         <div className="text-2xl font-bold text-red-600">
-          Team B {ropePosition >= 50 && "🏆"}
+          {teamB}{ropePosition >= 50 && "🏆"}
         </div>
       </div>
 
@@ -73,12 +75,12 @@ export default function TugOfWarQuiz({ teamAnswering }) {
 
           {/* Team A side */}
           <div className="absolute left-0 top-0 h-full w-1/2 flex items-center justify-start pl-4">
-            <span className="font-bold text-blue-600">Team A</span>
+            <span className="font-bold text-blue-600">{teamA}</span>
           </div>
 
           {/* Team B side */}
           <div className="absolute right-0 top-0 h-full w-1/2 flex items-center justify-end pr-4">
-            <span className="font-bold text-red-600">Team B</span>
+            <span className="font-bold text-red-600">{teamB}</span>
           </div>
         </div>
 
@@ -86,7 +88,7 @@ export default function TugOfWarQuiz({ teamAnswering }) {
         <div className="absolute w-full h-20 flex items-center justify-center">
           {/* This container helps position the rope system */}
           <div
-            className="relative w-3/4 h-20 flex items-center"
+            className="relative w-3/4 h-20 flex items-center transition-transform duration-1000 ease-in-out"
             style={{
               transform: `translateX(${ropePosition}%)`
             }}

@@ -10,8 +10,8 @@ export default function App() {
 
   return (
     <div>
-      <div className="App flex min-h-screen  items-center justify-center bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
-        {auth ? <Quiz /> : <Login setAuth={setAuth} />}
+      <div className="App min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
+        {auth ? <Quiz setAuth={setAuth} /> : <Login setAuth={setAuth} />}
       </div>
       <Toaster position="top-right" richColors />
     </div>
