@@ -298,17 +298,7 @@
                 "correctOption": 3,
                 "explanation": "Functional is not one of the classic Gang of Four pattern categories."
             },
-            {
-                "question": "What is the purpose of the 'finally' block in try-catch-finally?",
-                "options": [
-                    "To handle exceptions",
-                    "To execute code regardless of exceptions",
-                    "To catch specific exceptions",
-                    "To throw new exceptions"
-                ],
-                "correctOption": 1,
-                "explanation": "Finally blocks execute whether an exception occurs or not."
-            },
+            
             {
                 "question": "Which of these is NOT a valid JavaScript data type?",
                 "options": [
@@ -386,17 +376,7 @@
                 "correctOption": 3,
                 "explanation": "Python.NET is not a standard Python implementation."
             },
-            {
-                "question": "What is the purpose of the 'finally' block in exception handling?",
-                "options": [
-                    "To handle exceptions",
-                    "To catch specific exceptions",
-                    "To execute code regardless of exceptions",
-                    "To throw new exceptions"
-                ],
-                "correctOption": 2,
-                "explanation": "Finally blocks execute whether an exception occurs or not."
-            },
+            
             {
                 "question": "Which of these is NOT a valid HTTP method?",
                 "options": [
@@ -495,7 +475,842 @@
                 ],
                 "correctOption": 3,
                 "explanation": "ZP is not a standard complexity class (P, NP, XP are valid)."
-            }
-        ]
-    }
+            },
+        
+                        {
+                            "question": "Which sorting algorithm has the best average-case time complexity?",
+                            "options": [
+                                "Bubble Sort",
+                                "Merge Sort",
+                                "Quick Sort",
+                                "Insertion Sort"
+                            ],
+                            "correctOption": 2,
+                            "explanation": "QuickSort has O(n log n) average-case performance with good constant factors."
+                        },
+                        {
+                            "question": "What is the primary purpose of the OSI model?",
+                            "options": [
+                                "To standardize network communication",
+                                "To optimize hardware performance",
+                                "To encrypt data transmission",
+                                "To manage memory allocation"
+                            ],
+                            "correctOption": 0,
+                            "explanation": "The OSI model provides a standardized framework for network communication."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid type of machine learning?",
+                            "options": [
+                                "Supervised learning",
+                                "Unsupervised learning",
+                                "Reinforcement learning",
+                                "Compiler learning"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "Compiler learning is not a machine learning paradigm."
+                        },
+                        {
+                            "question": "What does DNS stand for?",
+                            "options": [
+                                "Data Network System",
+                                "Domain Name System",
+                                "Digital Naming Service",
+                                "Dynamic Node Structure"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "DNS translates domain names to IP addresses."
+                        },
+                        {
+                            "question": "Which data structure uses FIFO (First-In-First-Out) ordering?",
+                            "options": [
+                                "Stack",
+                                "Queue",
+                                "Heap",
+                                "Tree"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "Queues process elements in the order they were added."
+                        },
+                        {
+                            "question": "What is the main advantage of using a binary search tree?",
+                            "options": [
+                                "Constant time insertion",
+                                "Efficient searching (O(log n) average case)",
+                                "Automatic balancing",
+                                "No memory overhead"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "BSTs allow efficient search operations when balanced."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid HTTP response header?",
+                            "options": [
+                                "Content-Type",
+                                "Authorization",
+                                "Cache-Control",
+                                "Accept-Encoding"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "Accept-Encoding is a request header, not a response header."
+                        },
+                        {
+                            "question": "What is the purpose of the 'synchronized' keyword in Java?",
+                            "options": [
+                                "To improve performance",
+                                "To prevent thread interference",
+                                "To make variables immutable",
+                                "To enable garbage collection"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "Synchronized prevents multiple threads from accessing code simultaneously."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid relational database operation?",
+                            "options": [
+                                "Selection",
+                                "Projection",
+                                "Join",
+                                "Inheritance"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "Inheritance is an OOP concept, not a relational algebra operation."
+                        },
+                        {
+                            "question": "What is the primary purpose of the 'reduce' function in functional programming?",
+                            "options": [
+                                "To filter elements",
+                                "To transform each element",
+                                "To combine elements into a single value",
+                                "To sort elements"
+                            ],
+                            "correctOption": 2,
+                            "explanation": "Reduce accumulates values from a collection to a single result."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid Agile methodology?",
+                            "options": [
+                                "Scrum",
+                                "Kanban",
+                                "Waterfall",
+                                "Extreme Programming"
+                            ],
+                            "correctOption": 2,
+                            "explanation": "Waterfall is a sequential methodology, not Agile."
+                        },
+                        {
+                            "question": "What is the purpose of the 'border-box' value in CSS box-sizing?",
+                            "options": [
+                                "To include padding and border in element width",
+                                "To exclude margin from element width",
+                                "To create rounded borders",
+                                "To add shadow effects"
+                            ],
+                            "correctOption": 0,
+                            "explanation": "border-box makes width include padding and border."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid Python collection type?",
+                            "options": [
+                                "list",
+                                "tuple",
+                                "array",
+                                "set"
+                            ],
+                            "correctOption": 2,
+                            "explanation": "Python has 'array' module but it's not a built-in collection type."
+                        },
+                        {
+                            "question": "What is the purpose of the 'useMemo' hook in React?",
+                            "options": [
+                                "To manage state",
+                                "To perform side effects",
+                                "To memoize expensive calculations",
+                                "To create refs"
+                            ],
+                            "correctOption": 2,
+                            "explanation": "useMemo optimizes performance by memoizing computation results."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid Linux file permission?",
+                            "options": [
+                                "read",
+                                "write",
+                                "execute",
+                                "modify"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "Basic Linux permissions are rwx (read/write/execute)."
+                        },
+                        {
+                            "question": "What is the purpose of the 'transpile' step in JavaScript development?",
+                            "options": [
+                                "To convert JS to machine code",
+                                "To convert modern JS to older syntax",
+                                "To minify code",
+                                "To optimize performance"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "Transpiling converts modern JS to compatible versions (e.g., via Babel)."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid Big Data technology?",
+                            "options": [
+                                "Hadoop",
+                                "Spark",
+                                "Kafka",
+                                "PostgreSQL"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "PostgreSQL is a relational database, not primarily a Big Data tool."
+                        },
+                        {
+                            "question": "What is the purpose of the 'idempotent' property in HTTP methods?",
+                            "options": [
+                                "Multiple identical requests have same effect as one",
+                                "Requests are cacheable",
+                                "Requests are secure",
+                                "Requests can be sent in parallel"
+                            ],
+                            "correctOption": 0,
+                            "explanation": "Idempotent methods produce same result regardless of how many times called."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid type of blockchain consensus mechanism?",
+                            "options": [
+                                "Proof of Work",
+                                "Proof of Stake",
+                                "Proof of Concept",
+                                "Delegated Proof of Stake"
+                            ],
+                            "correctOption": 2,
+                            "explanation": "Proof of Concept is not a blockchain consensus mechanism."
+                        },
+                        {
+                            "question": "What is the purpose of the 'inode' in Unix filesystems?",
+                            "options": [
+                                "To store file names",
+                                "To store file metadata",
+                                "To encrypt files",
+                                "To compress files"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "Inodes store metadata about files (permissions, timestamps, etc)."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid type of API authentication?",
+                            "options": [
+                                "OAuth",
+                                "JWT",
+                                "API Key",
+                                "CSS Keyframes"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "CSS Keyframes are for animations, not authentication."
+                        },
+                        {
+                            "question": "What is the purpose of the 'double buffering' technique in graphics?",
+                            "options": [
+                                "To reduce memory usage",
+                                "To prevent screen tearing",
+                                "To enable 3D rendering",
+                                "To compress textures"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "Double buffering renders to a back buffer to prevent partial screen updates."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid type of cloud deployment model?",
+                            "options": [
+                                "Public Cloud",
+                                "Private Cloud",
+                                "Hybrid Cloud",
+                                "Static Cloud"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "Static Cloud is not a standard deployment model."
+                        },
+                        {
+                            "question": "What is the purpose of the 'ephemeral port' in networking?",
+                            "options": [
+                                "For well-known services",
+                                "For temporary client connections",
+                                "For VPN tunneling",
+                                "For DNS resolution"
+                            ],
+                            "correctOption": 1,
+                            "explanation": "Ephemeral ports are short-lived ports assigned to client connections."
+                        },
+                        {
+                            "question": "Which of these is NOT a valid type of CSS selector?",
+                            "options": [
+                                "Class selector",
+                                "ID selector",
+                                "Attribute selector",
+                                "Method selector"
+                            ],
+                            "correctOption": 3,
+                            "explanation": "Method selector is not a valid CSS selector type."
+                        },
+                    
+                                {
+                                    "question": "What is the primary purpose of the BGP (Border Gateway Protocol)?",
+                                    "options": [
+                                        "To assign IP addresses within a local network",
+                                        "To route traffic between autonomous systems on the internet",
+                                        "To encrypt web traffic",
+                                        "To resolve domain names to IP addresses"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "BGP is the protocol that makes core routing decisions on the internet between autonomous systems."
+                                },
+                                {
+                                    "question": "What does TLS 1.3 improve over previous versions?",
+                                    "options": [
+                                        "Adds more cipher suites",
+                                        "Removes obsolete cryptographic algorithms",
+                                        "Introduces quantum-resistant encryption",
+                                        "Allows backward compatibility with SSL"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "TLS 1.3 removes insecure features and reduces handshake latency."
+                                },
+                                {
+                                    "question": "What is the CAP theorem's 'P' (in CAP) referring to?",
+                                    "options": [
+                                        "Performance",
+                                        "Partition tolerance",
+                                        "Parallel processing",
+                                        "Persistence"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "The P stands for Partition tolerance - the system continues operating despite network partitions."
+                                },
+                                {
+                                    "question": "Which database is optimized for time-series data?",
+                                    "options": [
+                                        "MongoDB",
+                                        "InfluxDB",
+                                        "Cassandra",
+                                        "Redis"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "InfluxDB is specifically designed for handling time-stamped data efficiently."
+                                },
+                                {
+                                    "question": "What problem does the Bloom filter solve?",
+                                    "options": [
+                                        "Sorting large datasets",
+                                        "Probabilistic set membership testing",
+                                        "Graph traversal",
+                                        "Data compression"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Bloom filters efficiently test whether an element is possibly in a set or definitely not."
+                                },
+                                {
+                                    "question": "Which algorithm is used for finding shortest paths in a graph with negative weights?",
+                                    "options": [
+                                        "Dijkstra's",
+                                        "Bellman-Ford",
+                                        "A* Search",
+                                        "Floyd-Warshall"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Bellman-Ford can handle negative weights (unlike Dijkstra's)."
+                                },
+                                {
+                                    "question": "What is the purpose of the MMU (Memory Management Unit)?",
+                                    "options": [
+                                        "To manage CPU cache",
+                                        "To translate virtual addresses to physical addresses",
+                                        "To allocate disk space",
+                                        "To schedule processes"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "MMU handles virtual memory address translation."
+                                },
+                                {
+                                    "question": "What happens during a 'thrashing' scenario?",
+                                    "options": [
+                                        "CPU overheats",
+                                        "System spends more time paging than executing",
+                                        "Network congestion occurs",
+                                        "Disk fragmentation increases"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Thrashing occurs when excessive paging dominates system resources."
+                                },
+                                {
+                                    "question": "What is the main vulnerability that SQL injection exploits?",
+                                    "options": [
+                                        "Weak passwords",
+                                        "Mixing code and data in queries",
+                                        "Lack of HTTPS",
+                                        "Buffer overflows"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "SQL injection occurs when untrusted data is interpreted as SQL code."
+                                },
+                                {
+                                    "question": "Which attack exploits session management flaws?",
+                                    "options": [
+                                        "DDoS",
+                                        "CSRF (Cross-Site Request Forgery)",
+                                        "Man-in-the-middle",
+                                        "Phishing"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "CSRF tricks users into executing unwanted actions on authenticated sites."
+                                },
+                                {
+                                    "question": "What is the purpose of a sidecar container in Kubernetes?",
+                                    "options": [
+                                        "To run the main application",
+                                        "To provide auxiliary services (logging, monitoring)",
+                                        "To store persistent data",
+                                        "To manage node resources"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Sidecars extend/enhance the main container's functionality."
+                                },
+                                {
+                                    "question": "Which tool is used for infrastructure as code?",
+                                    "options": [
+                                        "Ansible",
+                                        "Terraform",
+                                        "Nagios",
+                                        "Jenkins"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Terraform provisions infrastructure through declarative configuration."
+                                },
+                                {
+                                    "question": "What does 'duck typing' refer to?",
+                                    "options": [
+                                        "Compile-time type checking",
+                                        "'If it walks like a duck...' runtime behavior checking",
+                                        "Automatic type conversion",
+                                        "Memory allocation strategy"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Duck typing focuses on an object's capabilities rather than its type."
+                                },
+                                {
+                                    "question": "Which language uses borrow checking for memory safety?",
+                                    "options": [
+                                        "Go",
+                                        "Rust",
+                                        "Swift",
+                                        "TypeScript"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Rust's borrow checker enforces ownership rules at compile time."
+                                },
+                                {
+                                    "question": "What is the purpose of a Merkle tree in blockchain?",
+                                    "options": [
+                                        "To store transaction history",
+                                        "To efficiently verify data integrity",
+                                        "To mine new blocks",
+                                        "To manage wallets"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Merkle trees enable efficient verification of large datasets."
+                                },
+                                {
+                                    "question": "Which quantum computing concept allows qubits to be correlated?",
+                                    "options": [
+                                        "Superposition",
+                                        "Entanglement",
+                                        "Interference",
+                                        "Decoherence"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Entanglement creates dependencies between qubits."
+                                },
+                                {
+                                    "question": "What does CORS (Cross-Origin Resource Sharing) enable?",
+                                    "options": [
+                                        "Faster DNS resolution",
+                                        "Secure cookies",
+                                        "Cross-domain requests",
+                                        "HTTP/2 multiplexing"
+                                    ],
+                                    "correctOption": 2,
+                                    "explanation": "CORS allows controlled access to resources from different origins."
+                                },
+                                {
+                                    "question": "Which HTML attribute enables content security policy (CSP)?",
+                                    "options": [
+                                        "rel=\"csp\"",
+                                        "meta http-equiv=\"Content-Security-Policy\"",
+                                        "<script policy=\"strict\">",
+                                        "<security-policy>"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "CSP is typically set via HTTP header or meta tag."
+                                },
+                                {
+                                    "question": "What is the Flynn effect in computing?",
+                                    "options": [
+                                        "More cores improve performance linearly",
+                                        "Transistors double every 18 months",
+                                        "Performance scales with vector processing",
+                                        "Parallelism has diminishing returns"
+                                    ],
+                                    "correctOption": 0,
+                                    "explanation": "Flynn's taxonomy classifies parallel architectures (SISD, SIMD, etc.)."
+                                },
+                                {
+                                    "question": "Which law predicts transistor density growth?",
+                                    "options": [
+                                        "Amdahl's Law",
+                                        "Moore's Law",
+                                        "Metcalfe's Law",
+                                        "Nielsen's Law"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Moore's Law originally predicted doubling every year (later revised to ~2 years)."
+                                },
+                                {
+                                    "question": "What does the 'P' stand for in P2P networking?",
+                                    "options": [
+                                        "Proxy",
+                                        "Peer",
+                                        "Protocol",
+                                        "Packet"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Peer-to-peer networks connect equal participants."
+                                },
+                                {
+                                    "question": "Which compression algorithm uses dictionary coding?",
+                                    "options": [
+                                        "Run-length encoding",
+                                        "LZ77",
+                                        "Huffman coding",
+                                        "Arithmetic coding"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "LZ77 and its variants use a sliding window dictionary approach."
+                                },
+                                {
+                                    "question": "What is the purpose of the 'volatile' keyword in C/C++?",
+                                    "options": [
+                                        "To make variables constant",
+                                        "To prevent compiler optimization of variable access",
+                                        "To enable atomic operations",
+                                        "To force variables into CPU registers"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "volatile tells the compiler the variable may change unexpectedly (e.g., by hardware)."
+                                },
+                                {
+                                    "question": "Which protocol is used for automated IP address assignment?",
+                                    "options": [
+                                        "ARP",
+                                        "DHCP",
+                                        "ICMP",
+                                        "NAT"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "DHCP (Dynamic Host Configuration Protocol) automatically assigns IP addresses."
+                                },
+                                {
+                                    "question": "What is the primary advantage of immutable data structures?",
+                                    "options": [
+                                        "Better memory efficiency",
+                                        "Thread safety without locking",
+                                        "Faster random access",
+                                        "Smaller code size"
+                                    ],
+                                    "correctOption": 1,
+                                    "explanation": "Immutability eliminates race conditions in concurrent programming."
+                                },
+                                
+                                        {
+                                            "question": "What is the primary purpose of the 'virtual DOM' in React?",
+                                            "options": [
+                                                "To enable 3D rendering",
+                                                "To improve rendering performance",
+                                                "To provide a backup of the DOM",
+                                                "To enable server-side rendering"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "The virtual DOM allows React to minimize direct DOM manipulations by comparing changes in memory first."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a characteristic of microservices architecture?",
+                                            "options": [
+                                                "Loosely coupled services",
+                                                "Independent deployability",
+                                                "Shared database tables",
+                                                "Technology diversity"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "Microservices typically maintain their own data storage and avoid shared database tables."
+                                        },
+                                        {
+                                            "question": "What is the purpose of the 'event loop' in JavaScript?",
+                                            "options": [
+                                                "To handle synchronous operations",
+                                                "To manage the call stack and callback queue",
+                                                "To optimize garbage collection",
+                                                "To prevent memory leaks"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "The event loop enables JavaScript's non-blocking I/O model by managing execution contexts."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a valid use case for Redis?",
+                                            "options": [
+                                                "Session storage",
+                                                "Message broker",
+                                                "Primary relational database",
+                                                "Real-time analytics"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "Redis is an in-memory data store not designed as a primary relational database."
+                                        },
+                                        {
+                                            "question": "What does 'idempotent' mean in REST APIs?",
+                                            "options": [
+                                                "The operation can only be performed once",
+                                                "Multiple identical requests have the same effect as one",
+                                                "The operation is always successful",
+                                                "The operation cannot be cached"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Idempotent operations produce the same result regardless of how many times they're executed."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a WebAssembly feature?",
+                                            "options": [
+                                                "Near-native performance",
+                                                "Memory-safe execution",
+                                                "Direct DOM access",
+                                                "Compact binary format"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "WebAssembly cannot directly manipulate the DOM; it must communicate with JavaScript."
+                                        },
+                                        {
+                                            "question": "What is the main advantage of columnar databases?",
+                                            "options": [
+                                                "Better for OLTP systems",
+                                                "Faster analytical queries",
+                                                "Easier schema migrations",
+                                                "Stronger consistency guarantees"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Columnar storage optimizes read performance for analytical queries that scan specific columns."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a GraphQL concept?",
+                                            "options": [
+                                                "Resolvers",
+                                                "Mutations",
+                                                "Stored procedures",
+                                                "Fragments"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "Stored procedures are an RDBMS concept, not part of GraphQL."
+                                        },
+                                        {
+                                            "question": "What is the purpose of the 'canary release' deployment strategy?",
+                                            "options": [
+                                                "To deploy to all servers simultaneously",
+                                                "To gradually roll out changes to a subset of users",
+                                                "To automatically rollback failed deployments",
+                                                "To test in production without affecting users"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Canary releases minimize risk by exposing new versions to a small percentage of traffic first."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a benefit of serverless architecture?",
+                                            "options": [
+                                                "No server management",
+                                                "Automatic scaling",
+                                                "Predictable performance",
+                                                "Pay-per-use billing"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "Serverless can have variable performance due to cold starts and shared infrastructure."
+                                        },
+                                        {
+                                            "question": "What is the purpose of the 'stride' concept in memory allocation?",
+                                            "options": [
+                                                "To prevent memory fragmentation",
+                                                "To optimize cache performance",
+                                                "To enable parallel processing",
+                                                "To reduce page faults"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Stride patterns optimize cache utilization by aligning memory access patterns."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a characteristic of gRPC?",
+                                            "options": [
+                                                "Uses HTTP/2",
+                                                "Binary protocol",
+                                                "Requires RESTful endpoints",
+                                                "Supports streaming"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "gRPC uses Protocol Buffers and doesn't require RESTful endpoint conventions."
+                                        },
+                                        {
+                                            "question": "What is the primary purpose of the 'circuit breaker' pattern?",
+                                            "options": [
+                                                "To prevent cascading failures",
+                                                "To encrypt network traffic",
+                                                "To balance server load",
+                                                "To cache database queries"
+                                            ],
+                                            "correctOption": 0,
+                                            "explanation": "Circuit breakers stop requests to failing services to prevent system-wide failures."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a feature of Kubernetes pods?",
+                                            "options": [
+                                                "Shared network namespace",
+                                                "Shared storage volumes",
+                                                "Independent scaling",
+                                                "Shared memory space"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "Pods scale together as a unit; containers within a pod can't scale independently."
+                                        },
+                                        {
+                                            "question": "What is the purpose of 'content-addressable storage'?",
+                                            "options": [
+                                                "To store data based on its location",
+                                                "To store data based on its content hash",
+                                                "To optimize for sequential access",
+                                                "To enable faster database joins"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Content addressing uses cryptographic hashes to identify data by its contents."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a benefit of immutable infrastructure?",
+                                            "options": [
+                                                "Easier rollbacks",
+                                                "Consistent environments",
+                                                "Reduced storage needs",
+                                                "Improved security"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "Immutable infrastructure often requires more storage as each change creates new artifacts."
+                                        },
+                                        {
+                                            "question": "What is the primary purpose of the 'reify' operation in programming?",
+                                            "options": [
+                                                "To make abstract concepts concrete",
+                                                "To optimize code execution",
+                                                "To serialize objects",
+                                                "To garbage collect memory"
+                                            ],
+                                            "correctOption": 0,
+                                            "explanation": "Reification turns abstract concepts into first-class objects that can be manipulated."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a Web3.js concept?",
+                                            "options": [
+                                                "Smart contracts",
+                                                "Blocks",
+                                                "Transactions",
+                                                "Virtual DOM"
+                                            ],
+                                            "correctOption": 3,
+                                            "explanation": "Virtual DOM is a React concept unrelated to Web3.js blockchain interactions."
+                                        },
+                                        {
+                                            "question": "What is the purpose of 'branch prediction' in CPUs?",
+                                            "options": [
+                                                "To prevent security vulnerabilities",
+                                                "To optimize instruction pipelines",
+                                                "To manage memory allocation",
+                                                "To synchronize threads"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Branch prediction improves performance by guessing instruction paths before branches are resolved."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a feature of IPv6?",
+                                            "options": [
+                                                "128-bit addresses",
+                                                "Built-in encryption",
+                                                "Stateless address autoconfiguration",
+                                                "Simplified header format"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "IPv6 doesn't include built-in encryption (though IPsec is commonly used with it)."
+                                        },
+                                        {
+                                            "question": "What is the purpose of 'memoization'?",
+                                            "options": [
+                                                "To allocate memory dynamically",
+                                                "To cache function results",
+                                                "To serialize objects",
+                                                "To garbage collect unused variables"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Memoization optimizes performance by caching the results of expensive function calls."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a characteristic of Apache Kafka?",
+                                            "options": [
+                                                "Distributed streaming platform",
+                                                "Message retention based on size/time",
+                                                "Strongly consistent by default",
+                                                "High throughput"
+                                            ],
+                                            "correctOption": 2,
+                                            "explanation": "Kafka prioritizes availability and partition tolerance over strong consistency."
+                                        },
+                                        {
+                                            "question": "What is the purpose of 'escape analysis' in compilers?",
+                                            "options": [
+                                                "To detect security vulnerabilities",
+                                                "To determine if objects can be stack-allocated",
+                                                "To optimize loop unrolling",
+                                                "To minimize register usage"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Escape analysis identifies objects that don't escape their allocation scope, enabling optimizations."
+                                        },
+                                        {
+                                            "question": "Which of these is NOT a benefit of JIT compilation?",
+                                            "options": [
+                                                "Faster startup than AOT",
+                                                "Profile-guided optimization",
+                                                "Platform-specific optimizations",
+                                                "Reduced memory usage"
+                                            ],
+                                            "correctOption": 3,
+                                            "explanation": "JIT compilation typically increases memory usage due to runtime compilation overhead."
+                                        },
+                                        {
+                                            "question": "What is the purpose of 'vector embeddings' in ML?",
+                                            "options": [
+                                                "To reduce model size",
+                                                "To represent discrete items as continuous vectors",
+                                                "To visualize neural networks",
+                                                "To encrypt training data"
+                                            ],
+                                            "correctOption": 1,
+                                            "explanation": "Embeddings map categorical data to vector space where similar items have similar representations."
+                                        }
+                                    ]
+                                }
+                        
+                        
+                    
+                
+            
+        
+    
 }
