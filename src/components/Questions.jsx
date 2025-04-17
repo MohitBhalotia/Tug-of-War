@@ -173,7 +173,7 @@ const Questions = ({ setAuth, setRegistered }) => {
         }, 1000);
         setIntervalId(newInterval);
       }
-    }, 1000);
+    }, 2000);
   };
 
   const togglePause = () => {
@@ -220,58 +220,53 @@ const Questions = ({ setAuth, setRegistered }) => {
   };
 
   return (
-    <div className="h-screen bg-gray-50">
-      <div className="h-full px-4 py-4">
-        <div className="grid grid-cols-12 gap-6 h-full">
+    <div className="h-screen bg-gray-50 overflow-hidden">
+      <div className="h-full px-2 py-2">
+        <div className="grid grid-cols-12 gap-4 h-full">
           {/* Team A Column */}
-          <div className="col-span-2 bg-white rounded-lg shadow-lg p-4">
+          <div className="col-span-2 bg-white rounded-lg shadow-lg p-2">
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-blue-600 mb-2">
-                {team1name}
-              </h2>
-              <div className="text-6xl font-bold text-blue-700">
-                {scoreTeam1}
-              </div>
-              <p className="text-blue-500 text-lg">Points</p>
+              <h2 className="text-xl font-bold text-blue-600 mb-1">{team1name}</h2>
+              <div className="text-4xl font-bold text-blue-700">{scoreTeam1}</div>
+              <p className="text-blue-500 text-sm">Points</p>
             </div>
           </div>
 
           {/* Middle Column - Game Content */}
           <div className="col-span-8 flex flex-col">
             {/* Action Buttons */}
-            <div className="flex justify-center gap-4 mb-4">
+            <div className="flex justify-center gap-2 mb-2">
               <button
                 onClick={handleRestartQuiz}
-                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-md transition-all duration-200"
+                className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-lg text-sm font-semibold shadow-md transition-all duration-200"
               >
                 Restart Quiz
               </button>
               <button
                 onClick={handleResetQuiz}
-                className="bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-md transition-all duration-200"
+                className="bg-yellow-600 hover:bg-yellow-700 text-white px-3 py-1 rounded-lg text-sm font-semibold shadow-md transition-all duration-200"
               >
                 Reset Quiz
               </button>
               <button
                 onClick={handleLogout}
-                className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg text-base font-semibold shadow-md transition-all duration-200"
+                className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-semibold shadow-md transition-all duration-200"
               >
                 Logout
               </button>
             </div>
 
             {/* Tug of War Component */}
-            <div className="mb-4">
+            <div className="mb-2">
               <TugOfWarQuiz teamAnswering={lastCorrectTeam} />
             </div>
 
             {/* Start Quiz Button */}
-            <div className="text-center mb-4">
+            <div className="flex justify-center items-center my-2">
               <button
                 onClick={fetchQuestion}
-                className={`bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-blue-700 transition-colors ${
-                  refresh ? "hidden" : "block"
-                }`}
+                className={`bg-blue-600 text-white px-6 py-2 rounded-lg text-base font-semibold shadow-lg hover:bg-blue-700 transition-colors ${refresh ? "hidden" : "block"
+                  }`}
               >
                 Start Quiz
               </button>
@@ -279,24 +274,19 @@ const Questions = ({ setAuth, setRegistered }) => {
 
             {/* Question Section */}
             {question1?.question && (
-              <div className="bg-white rounded-lg shadow-lg p-4 flex-1">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">
-                  Question:
-                </h3>
-                <p className="text-lg text-gray-700 mb-4">
-                  {question1.question}
-                </p>
+              <div className="bg-white rounded-lg shadow-lg p-3 flex-1 overflow-y-auto">
+                <h3 className="text-lg font-bold text-gray-800 mb-1">Question:</h3>
+                <p className="text-base text-gray-700 mb-2">{question1.question}</p>
 
                 {/* Options */}
-                <div className="space-y-2 mb-4">
+                <div className="space-y-1 mb-2">
                   {question1.options?.map((opt, index) => (
                     <label
                       key={index}
-                      className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                        selected1 === opt
+                      className={`flex items-center p-2 rounded-lg border-2 cursor-pointer transition-colors ${selected1 === opt
                           ? "border-blue-500 bg-blue-50"
                           : "border-gray-200 hover:border-blue-300"
-                      }`}
+                        }`}
                     >
                       <input
                         type="radio"
@@ -305,35 +295,33 @@ const Questions = ({ setAuth, setRegistered }) => {
                         checked={selected1 === opt}
                         onChange={(e) => setSelected1(e.target.value)}
                         disabled={submitted}
-                        className="mr-3 h-5 w-5 text-blue-600"
+                        className="mr-2 h-4 w-4 text-blue-600"
                       />
-                      <span className="text-base text-gray-700">{opt}</span>
+                      <span className="text-sm text-gray-700">{opt}</span>
                     </label>
                   ))}
                 </div>
 
                 {/* Team Selection */}
-                <div className="mb-4">
-                  <h3 className="text-lg font-semibold text-gray-700 mb-2">
+                <div className="mb-2">
+                  <h3 className="text-base font-semibold text-gray-700 mb-1">
                     Choose Team to Answer:
                   </h3>
-                  <div className="flex gap-4">
+                  <div className="flex gap-2">
                     <button
-                      className={`flex-1 py-3 px-6 rounded-lg text-white text-base font-semibold transition-colors ${
-                        voted && chooseteam === "team1"
+                      className={`flex-1 py-2 px-4 rounded-lg text-white text-sm font-semibold transition-colors ${voted && chooseteam === "team1"
                           ? "bg-gray-400"
                           : "bg-blue-600 hover:bg-blue-700"
-                      }`}
+                        }`}
                       onClick={voteteam1}
                     >
                       {team1name}
                     </button>
                     <button
-                      className={`flex-1 py-3 px-6 rounded-lg text-white text-base font-semibold transition-colors ${
-                        voted && chooseteam === "team2"
+                      className={`flex-1 py-2 px-4 rounded-lg text-white text-sm font-semibold transition-colors ${voted && chooseteam === "team2"
                           ? "bg-gray-400"
                           : "bg-red-600 hover:bg-red-700"
-                      }`}
+                        }`}
                       onClick={voteteam2}
                     >
                       {team2name}
@@ -345,7 +333,7 @@ const Questions = ({ setAuth, setRegistered }) => {
                 <div className="text-center">
                   <button
                     onClick={handleSubmit}
-                    className="bg-green-600 text-white px-8 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    className="bg-green-600 text-white px-6 py-2 rounded-lg text-base font-semibold shadow-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
                     disabled={submitted || !selected1 || !chooseteam}
                   >
                     Submit Answer
@@ -356,15 +344,11 @@ const Questions = ({ setAuth, setRegistered }) => {
           </div>
 
           {/* Team B Column */}
-          <div className="col-span-2 bg-white rounded-lg shadow-lg p-4">
+          <div className="col-span-2 bg-white rounded-lg shadow-lg p-2">
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-red-600 mb-2">
-                {team2name}
-              </h2>
-              <div className="text-6xl font-bold text-red-700">
-                {scoreTeam2}
-              </div>
-              <p className="text-red-500 text-lg">Points</p>
+              <h2 className="text-xl font-bold text-red-600 mb-1">{team2name}</h2>
+              <div className="text-4xl font-bold text-red-700">{scoreTeam2}</div>
+              <p className="text-red-500 text-sm">Points</p>
             </div>
           </div>
         </div>
@@ -372,77 +356,64 @@ const Questions = ({ setAuth, setRegistered }) => {
         {/* Results Overlay */}
         {loading && (
           <div className="fixed inset-0 bg-white bg-opacity-95 flex flex-col items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-lg shadow-xl p-6 max-w-4xl w-full">
+            <div className="bg-white rounded-lg shadow-xl p-4 max-w-3xl w-full">
               {tugOfWarWinner ? (
-                <div className="text-center py-8">
-                  <h2 className="text-5xl font-bold mb-4">
+                <div className="text-center py-4">
+                  <h2 className="text-4xl font-bold mb-2">
                     {tugOfWarWinner} Wins!
                   </h2>
-                  <p className="text-2xl text-gray-700 mb-6">
+                  <p className="text-xl text-gray-700 mb-4">
                     Final Score: {scoreTeam1} - {scoreTeam2}
                   </p>
                   <button
                     onClick={handleRestartQuiz}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-xl font-semibold shadow-lg transition-all duration-200"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg transition-all duration-200"
                   >
                     Play Again
                   </button>
                 </div>
               ) : (
                 <>
-                  <div className="flex items-center justify-between mb-4">
-                    <p className="text-2xl font-bold text-gray-800">
-                      Next question in:{" "}
-                      <span className="text-blue-600">{countdown}</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-xl font-bold text-gray-800">
+                      Next question in: <span className="text-blue-600">{countdown}</span>
                     </p>
                     <button
                       onClick={togglePause}
-                      className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-base"
+                      className="px-4 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
                     >
                       {isPaused ? "Resume" : "Pause"}
                     </button>
                   </div>
 
                   {submitted && (
-                    <div className="mt-4">
-                      <h4 className="text-2xl font-bold text-gray-800 mb-4">
-                        Results:
-                      </h4>
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <p className="text-lg mb-2">
-                          Your answer:{" "}
-                          <strong className="text-gray-800">{selected1}</strong>
+                    <div className="mt-2">
+                      <h4 className="text-xl font-bold text-gray-800 mb-2">Results:</h4>
+                      <div className="bg-gray-50 rounded-lg p-3">
+                        <p className="text-base mb-1">
+                          Your answer: <strong className="text-gray-800">{selected1}</strong>
                         </p>
-                        {selected1 ===
-                        question1.options[question1.correctOption] ? (
+                        {selected1 === question1.options[question1.correctOption] ? (
                           <div className="text-green-600">
-                            <p className="text-xl font-bold mb-2">
-                              ✅ Correct!
-                            </p>
-                            <p className="text-lg mb-2">
+                            <p className="text-lg font-bold mb-1">✅ Correct!</p>
+                            <p className="text-base mb-1">
                               +1 point for{" "}
                               <strong className="text-gray-800">
                                 {chooseteam === "team1" ? team1name : team2name}
                               </strong>
                             </p>
-                            <p className="text-base text-gray-700">
-                              {question1.explanation}
-                            </p>
+                            <p className="text-sm text-gray-700">{question1.explanation}</p>
                           </div>
                         ) : (
                           <div className="text-red-600">
-                            <p className="text-xl font-bold mb-2">
-                              ❌ Incorrect
-                            </p>
-                            <p className="text-lg mb-2">
+                            <p className="text-lg font-bold mb-1">❌ Incorrect</p>
+                            <p className="text-base mb-1">
                               Correct answer:{" "}
                               <strong className="text-gray-800">
                                 {question1.options[question1.correctOption]}
                               </strong>
                             </p>
-                            <p className="text-base text-gray-700">
-                              {question1.explanation}
-                            </p>
+                            <p className="text-sm text-gray-700">{question1.explanation}</p>
                           </div>
                         )}
                       </div>
