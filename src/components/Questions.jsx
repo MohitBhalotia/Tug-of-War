@@ -21,6 +21,8 @@ const Questions = () => {
   
   const team1name = localStorage.getItem("team1");
   const team2name = localStorage.getItem("team2");
+
+  const [refresh,setrefresh]=useState(false)
   useEffect(() => {
     // Load existing scores and used questions from localStorage
     const savedTeam1 = parseInt(localStorage.getItem("team1Score")) || 0;
@@ -34,6 +36,7 @@ const Questions = () => {
   }, []);
 
   const fetchQuestion = () => {
+    setrefresh(true)
     const allQuestions = questions.technical_questions_json.quiz;
     setQuestions(allQuestions);
 
@@ -120,9 +123,9 @@ const Questions = () => {
 
       <button
         onClick={fetchQuestion}
-        className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+        className={`bg-blue-500 text-white px-4 py-2 rounded mb-4 ${refresh ? "hidden" : "block" } `}
       >
-        {question1 ?  <div>Start Quiz main</div> : <div>Start Quiz</div>}
+        Start quiz
       </button>
 
       {question1?.question && (
