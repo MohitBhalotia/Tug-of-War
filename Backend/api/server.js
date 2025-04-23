@@ -8,9 +8,13 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: process.env.FRONTEND_URL, // In production, restrict this to your frontend URL
-    methods: ["GET", "POST"]
-  }
+    origin: process.env.NODE_ENV === 'production' 
+      ? [process.env.FRONTEND_URL, 'https://your-frontend-url.vercel.app'] 
+      : '*', // Allow all origins in development
+    methods: ["GET", "POST"],
+    credentials: true
+  },
+  transports: ['websocket', 'polling'] // Add polling as a fallback
 });
 
 app.use(cors());
