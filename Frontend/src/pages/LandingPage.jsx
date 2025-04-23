@@ -109,41 +109,41 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">Tug of War Quiz</h2>
-          <p className="text-gray-600">Enter team names to create a room</p>
-          <p className="text-sm text-blue-600 mt-1">You will be the admin (not part of any team)</p>
+    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-4 sm:p-6">
+        <div className="text-center mb-4 sm:mb-6">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Tug of War Quiz</h2>
+          <p className="text-gray-600 text-sm sm:text-base">Enter team names to create a room</p>
+          <p className="text-xs sm:text-sm text-blue-600 mt-1">You will be the admin (not part of any team)</p>
         </div>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 sm:space-y-4">
             <div className="mb-2">
-              <label className="text-gray-700 text-lg font-semibold">Admin Name</label>
+              <label className="text-gray-700 text-base sm:text-lg font-semibold">Admin Name</label>
               <input
                 type="text"
                 value={adminName}
                 onChange={(e) => setAdminName(e.target.value)}
-                className="w-full h-12 text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all rounded-md px-3 mt-1"
+                className="w-full h-10 sm:h-12 text-base sm:text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all rounded-md px-3 mt-1"
                 placeholder="Enter your name (Admin)"
               />
-              <p className="text-sm text-gray-500 mt-1">You will host the game as admin</p>
+              <p className="text-xs sm:text-sm text-gray-500 mt-1">You will host the game as admin</p>
             </div>
             <FormField
               control={form.control}
               name="team1"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700 text-lg font-semibold">Team 1</FormLabel>
+                  <FormLabel className="text-gray-700 text-base sm:text-lg font-semibold">Team 1</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter name of team 1"
-                      className="h-12 text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                      className="h-10 sm:h-12 text-base sm:text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="text-red-500" />
+                  <FormMessage className="text-red-500 text-xs sm:text-sm" />
                 </FormItem>
               )}
             />
@@ -153,45 +153,45 @@ export default function LandingPage() {
               name="team2"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700 text-lg font-semibold">Team 2</FormLabel>
+                  <FormLabel className="text-gray-700 text-base sm:text-lg font-semibold">Team 2</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter name of team 2"
-                      className="h-12 text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+                      className="h-10 sm:h-12 text-base sm:text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage className="text-red-500" />
+                  <FormMessage className="text-red-500 text-xs sm:text-sm" />
                 </FormItem>
               )}
             />
 
-            <div className="flex items-center justify-center mt-8">
+            <div className="flex items-center justify-center mt-6 sm:mt-8">
               {!roomId ? (
                 <Button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-200"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white text-base sm:text-lg font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-md transition-all duration-200"
                   disabled={isCreatingRoom}
                 >
                   {isCreatingRoom ? "Creating Room..." : "Create Room"}
                 </Button>
               ) : (
-                <div className="w-full space-y-4">
-                  <div className="p-3 bg-gray-100 rounded-lg text-center">
-                    <p className="text-sm text-gray-600">Room ID:</p>
-                    <p className="text-xl font-bold text-blue-600">{roomId}</p>
+                <div className="w-full space-y-3 sm:space-y-4">
+                  <div className="p-2 sm:p-3 bg-gray-100 rounded-lg text-center">
+                    <p className="text-xs sm:text-sm text-gray-600">Room ID:</p>
+                    <p className="text-lg sm:text-xl font-bold text-blue-600">{roomId}</p>
                   </div>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-3">
                     <Button
                       type="button"
-                      className="bg-green-600 hover:bg-green-700 text-white text-md font-semibold py-2 rounded-lg shadow-md transition-all duration-200"
+                      className="bg-green-600 hover:bg-green-700 text-white text-sm sm:text-md font-semibold py-1.5 sm:py-2 rounded-lg shadow-md transition-all duration-200"
                       onClick={shareRoom}
                     >
                       Share Link
                     </Button>
                     <Button
                       type="button"
-                      className="bg-blue-600 hover:bg-blue-700 text-white text-md font-semibold py-2 rounded-lg shadow-md transition-all duration-200"
+                      className="bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-md font-semibold py-1.5 sm:py-2 rounded-lg shadow-md transition-all duration-200"
                       onClick={startGame}
                     >
                       Start Game

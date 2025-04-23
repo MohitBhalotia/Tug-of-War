@@ -17,8 +17,8 @@ export default function App() {
 
   return (
     <Router>
-      <div>
-        <div className="App min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
+      <div className="w-full overflow-x-hidden">
+        <div className="App min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] w-full">
           <Routes>
             {/* Original routes */}
             {/* <Route 

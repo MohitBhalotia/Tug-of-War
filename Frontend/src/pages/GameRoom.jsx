@@ -346,9 +346,10 @@ export default function GameRoom() {
 
   if (isLoading) {
     return (
-      <div className="h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] flex items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 text-center">
-          <p className="text-xl">Connecting to room...</p>
+      <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+          <p className="text-xl text-gray-300">Connecting to room...</p>
         </div>
       </div>
     );
@@ -356,15 +357,20 @@ export default function GameRoom() {
 
   if (error) {
     return (
-      <div className="h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] flex items-center justify-center p-4">
-        <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6 text-center">
-          <h2 className="text-2xl font-bold text-red-600 mb-4">Error</h2>
-          <p className="text-xl mb-6">{error}</p>
+      <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
+        <div className="flex flex-col items-center justify-center min-h-screen p-4">
+          <div className="bg-red-500 bg-opacity-20 p-4 rounded-lg mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-red-500 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            <h2 className="text-xl font-bold text-center mb-2">Error</h2>
+            <p className="text-center text-sm sm:text-base">{error}</p>
+          </div>
           <button
-            onClick={() => navigate("/")}
-            className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-2 px-6 rounded-lg shadow-md transition-all duration-200"
+            onClick={() => navigate('/')}
+            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors"
           >
-            Back to Home
+            Return to Home
           </button>
         </div>
       </div>
@@ -372,382 +378,408 @@ export default function GameRoom() {
   }
 
   return (
-    <div className="h-screen bg-gray-50 overflow-hidden">
-      <div className="h-full px-2 py-2">
-        <div className="grid grid-cols-12 gap-4 h-full">
-          {/* Team A Column */}
-          <div className="col-span-2 bg-white rounded-lg shadow-lg p-2">
-            <div className="text-center">
-              <h2 className="text-xl font-bold text-blue-600 mb-1">{roomInfo.team1}</h2>
-              <div className="text-4xl font-bold text-blue-700">{roomInfo.team1Score}</div>
-              <p className="text-blue-500 text-sm">Points</p>
-              <div className="mt-2 text-sm">
-                {roomInfo.team1Connected ? (
-                  <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full">Connected</span>
+    <div className="min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b] text-white">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-6 flex flex-col min-h-screen">
+        {/* Room Header */}
+        <div className="bg-gray-800 bg-opacity-50 p-3 sm:p-4 rounded-lg mb-4 sm:mb-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 sm:mb-0">
+            <div>
+              <h1 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-0">
+                Room: <span className="text-blue-400">{roomId}</span>
+              </h1>
+              <div className="flex items-center space-x-2 text-sm sm:text-base text-gray-300">
+                <span>Status:</span>
+                {roomInfo.gameStarted ? (
+                  <span className="text-green-400 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Game in Progress
+                  </span>
                 ) : (
-                  <span className="inline-block px-2 py-1 bg-red-100 text-red-800 rounded-full">Waiting</span>
+                  <span className="text-yellow-400 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Waiting to Start
+                  </span>
                 )}
               </div>
-              {myTeam === roomInfo.team1 && !isAdmin && (
-                <div className="mt-2 text-sm">
-                  <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded-full">You</span>
-                </div>
-              )}
             </div>
-          </div>
-
-          {/* Middle Column - Game Content */}
-          <div className="col-span-8 flex flex-col">
-            {/* Room Info */}
-            <div className="bg-white rounded-lg shadow-md p-2 mb-2 flex justify-between items-center">
-              <div>
-                <span className="text-sm text-gray-500">Room ID:</span>
-                <span className="ml-2 font-semibold">{roomId}</span>
-              </div>
-              <div>
-                <span className="text-sm text-gray-500">Your Role:</span>
-                <span className="ml-2 font-semibold">
-                  {isAdmin ? (
-                    <span className="text-purple-600">{adminName} (Admin)</span>
-                  ) : (
-                    <span className="text-blue-600">{myTeam}</span>
-                  )}
-                </span>
-              </div>
-              <button
-                onClick={() => {
-                  // Clear admin token if present
-                  if (localStorage.getItem("adminToken")) {
-                    localStorage.removeItem("adminToken");
-                  }
-                  navigate("/");
-                }}
-                className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm font-semibold shadow-md transition-all duration-200"
-              >
-                Leave Room
-              </button>
-            </div>
-
-            {/* Tug of War Component */}
-            <div className="mb-2">
-              <TugOfWarQuiz 
-                teamAnswering={lastCorrectTeam} 
-                ropePosition={roomInfo.ropePosition}
-                team1={roomInfo.team1}
-                team2={roomInfo.team2}
-                winner={roomInfo.winner}
-                onReset={resetGame}
-              />
-            </div>
-
-            {/* Admin Panel */}
-            {isAdmin && (
-              <div className="bg-white rounded-lg shadow-lg p-4 mb-4 max-w-md mx-auto w-full">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3 text-center">Admin Panel</h3>
-                <div className="grid grid-cols-1 gap-3 mb-3">
-                  <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-                    <p className="text-sm font-medium text-gray-500 mb-1">Room Status:</p>
-                    <p className="text-base font-bold">
-                      {roomInfo.gameStarted ? (
-                        <span className="text-green-600">Game In Progress</span>
-                      ) : (
-                        <span className="text-yellow-600">Waiting to Start</span>
-                      )}
-                    </p>
-                  </div>
-                  
-                  <div className="bg-gray-50 rounded-lg p-3 border border-gray-200">
-                    <p className="text-sm font-medium text-gray-500 mb-2">Teams Connected:</p>
-                    <div className="flex flex-col space-y-2">
-                      <div className={`flex items-center justify-between p-2 rounded-lg ${
-                        roomInfo.team1Connected ? "bg-green-100" : "bg-red-50"
-                      }`}>
-                        <div className="flex items-center">
-                          <div className={`w-2.5 h-2.5 rounded-full mr-2 ${
-                            roomInfo.team1Connected ? "bg-green-500" : "bg-red-500"
-                          }`}></div>
-                          <span className="font-medium text-sm">{roomInfo.team1}</span>
-                        </div>
-                        <span className={`text-xs font-medium ${
-                          roomInfo.team1Connected ? "text-green-600" : "text-red-600"
-                        }`}>
-                          {roomInfo.team1Connected ? "Connected" : "Waiting"}
-                        </span>
-                      </div>
-                      
-                      <div className={`flex items-center justify-between p-2 rounded-lg ${
-                        roomInfo.team2Connected ? "bg-green-100" : "bg-red-50"
-                      }`}>
-                        <div className="flex items-center">
-                          <div className={`w-2.5 h-2.5 rounded-full mr-2 ${
-                            roomInfo.team2Connected ? "bg-green-500" : "bg-red-500"
-                          }`}></div>
-                          <span className="font-medium text-sm">{roomInfo.team2}</span>
-                        </div>
-                        <span className={`text-xs font-medium ${
-                          roomInfo.team2Connected ? "text-green-600" : "text-red-600"
-                        }`}>
-                          {roomInfo.team2Connected ? "Connected" : "Waiting"}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mt-3 flex justify-center">
-                  {!roomInfo.gameStarted && roomInfo.team1Connected && roomInfo.team2Connected ? (
-                    <button
-                      onClick={startGame}
-                      className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-lg text-sm font-semibold shadow-md transition-all duration-200 w-full"
-                    >
-                      Start Game
-                    </button>
-                  ) : !roomInfo.gameStarted ? (
-                    <div className="grid grid-cols-2 gap-2 w-full">
-                      <button
-                        onClick={() => {
-                          const team1Link = `${window.location.origin}/join/${roomId}?token=${team1Token}`;
-                          navigator.clipboard.writeText(team1Link);
-                          toast.success(`${roomInfo.team1} link copied!`);
-                        }}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-2 py-1.5 rounded-lg text-xs font-semibold shadow-md transition-all duration-200 flex items-center justify-center"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                        Copy {roomInfo.team1} Link
-                      </button>
-                      <button
-                        onClick={() => {
-                          const team2Link = `${window.location.origin}/join/${roomId}?token=${team2Token}`;
-                          navigator.clipboard.writeText(team2Link);
-                          toast.success(`${roomInfo.team2} link copied!`);
-                        }}
-                        className="bg-red-600 hover:bg-red-700 text-white px-2 py-1.5 rounded-lg text-xs font-semibold shadow-md transition-all duration-200 flex items-center justify-center"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                        </svg>
-                        Copy {roomInfo.team2} Link
-                      </button>
-                    </div>
-                  ) : (
-                    <button
-                      onClick={resetGame}
-                      className="bg-yellow-600 hover:bg-yellow-700 text-white px-5 py-2 rounded-lg text-sm font-semibold shadow-md transition-all duration-200 w-full flex items-center justify-center"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                      </svg>
-                      Reset Game
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {/* Waiting message for teams */}
-            {!isAdmin && waitingForOtherTeam && (
-              <div className="bg-white rounded-lg shadow-lg p-4 text-center">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Waiting for the other team to connect</h3>
-                <p className="text-gray-600">The admin will start the game once both teams are ready</p>
-              </div>
-            )}
-            
-            {!isAdmin && !waitingForOtherTeam && !roomInfo.gameStarted && (
-              <div className="bg-white rounded-lg shadow-lg p-4 text-center">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Both teams are connected!</h3>
-                <p className="text-gray-600">Waiting for the admin to start the game</p>
-              </div>
-            )}
-            
-            {/* Winner Announcement for teams when not in overlay */}
-            {!isAdmin && roomInfo.winner && !showResults && (
-              <div className="bg-white rounded-lg shadow-lg p-4 text-center">
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">
-                  {myTeam === roomInfo.winner ? (
-                    <span className="text-green-600">Your team has won! 🎉</span>
-                  ) : (
-                    <span className="text-red-600">Your team has lost!</span>
-                  )}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  {myTeam === roomInfo.winner
-                    ? "Congratulations! Your team pulled the rope all the way!"
-                    : `${roomInfo.winner} has won the game by pulling the rope all the way.`}
-                </p>
+            <div className="flex mt-2 sm:mt-0">
+              {isAdmin && (
                 <button
-                  onClick={() => {
-                    // Clear all game-related localStorage items
-                    localStorage.removeItem(`prevQuestions-${roomId}`);
-                    localStorage.removeItem('teamToken');
-                    localStorage.removeItem('myTeam');
-                    localStorage.removeItem('roomId');
-                    localStorage.removeItem('adminToken');
-                    
-                    // Navigate to home page
-                    navigate('/');
-                  }}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-semibold shadow-md transition-all duration-200"
+                  onClick={startGame}
+                  disabled={roomInfo.gameStarted || waitingForOtherTeam}
+                  className={`mr-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm sm:text-base font-medium flex items-center ${
+                    roomInfo.gameStarted || waitingForOtherTeam
+                      ? "bg-gray-600 cursor-not-allowed"
+                      : "bg-green-600 hover:bg-green-700"
+                  }`}
                 >
-                  Return to Home
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  </svg>
+                  Start Game
                 </button>
-              </div>
-            )}
-
-            {/* Question Section */}
-            {roomInfo.gameStarted && question && !isAdmin && !roomInfo.winner && (
-              <div className="bg-white rounded-lg shadow-lg p-3 flex-1 overflow-y-auto px-10">
-                <h3 className="text-lg font-bold text-gray-800 mb-1 py-2 ">Question:</h3>
-                <p className="text-base text-gray-700 mb-2">{question.question}</p>
-
-                {/* Options */}
-                <div className="space-y-1 mb-2">
-                  {question.options?.map((opt, index) => (
-                    <label
-                      key={index}
-                      className={`flex items-center p-2 rounded-lg border-2 cursor-pointer transition-colors ${
-                        selected === opt
-                          ? "border-blue-500 bg-blue-50"
-                          : "border-gray-200 hover:border-blue-300"
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name="question"
-                        value={opt}
-                        checked={selected === opt}
-                        onChange={(e) => setSelected(e.target.value)}
-                        disabled={submitted}
-                        className="mr-2 h-4 w-4 text-blue-600"
-                      />
-                      <span className="text-sm text-gray-700">{opt}</span>
-                    </label>
-                  ))}
-                </div>
-
-                {/* Submit Button */}
-                <div className="text-center mt-4">
-                  <button
-                    onClick={handleSubmit}
-                    className="bg-green-600 text-white px-6 py-2 rounded-lg text-base font-semibold shadow-lg hover:bg-green-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
-                    disabled={submitted || !selected}
-                  >
-                    Submit Answer
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* Team B Column */}
-          <div className="col-span-2 bg-white rounded-lg shadow-lg p-2">
-            <div className="text-center">
-              <h2 className="text-xl font-bold text-red-600 mb-1">{roomInfo.team2}</h2>
-              <div className="text-4xl font-bold text-red-700">{roomInfo.team2Score}</div>
-              <p className="text-red-500 text-sm">Points</p>
-              <div className="mt-2 text-sm">
-                {roomInfo.team2Connected ? (
-                  <span className="inline-block px-2 py-1 bg-green-100 text-green-800 rounded-full">Connected</span>
-                ) : (
-                  <span className="inline-block px-2 py-1 bg-red-100 text-red-800 rounded-full">Waiting</span>
-                )}
-              </div>
-              {myTeam === roomInfo.team2 && !isAdmin && (
-                <div className="mt-2 text-sm">
-                  <span className="inline-block px-2 py-1 bg-blue-100 text-blue-800 rounded-full">You</span>
-                </div>
+              )}
+              {isAdmin && roomInfo.gameStarted && (
+                <button
+                  onClick={resetGame}
+                  className="px-3 sm:px-4 py-1.5 bg-red-600 hover:bg-red-700 rounded-lg text-sm sm:text-base font-medium flex items-center"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Reset Game
+                </button>
               )}
             </div>
           </div>
         </div>
 
-        {/* Results Overlay */}
-        {showResults && (
-          <div className="fixed inset-0 bg-white bg-opacity-95 flex flex-col items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-lg shadow-xl p-4 max-w-3xl w-full">
-              {roomInfo.winner ? (
-                <div className="text-center py-4">
-                  <h2 className="text-4xl font-bold mb-2 text-green-600">
-                    {roomInfo.winner} Wins!
-                  </h2>
-                  <div className="py-4 px-6 bg-green-50 rounded-lg border border-green-100 mb-6">
-                    <p className="text-xl text-gray-700 mb-2">
-                      Final Score: <span className="font-bold text-blue-600">{roomInfo.team1Score}</span> - <span className="font-bold text-red-600">{roomInfo.team2Score}</span>
-                    </p>
-                    <p className="text-gray-600">
-                      The quiz has ended. {roomInfo.winner} has pulled the rope all the way to their side!
-                    </p>
-                  </div>
-                  <button
-                    onClick={() => {
-                      // Clear all game-related localStorage items
-                      localStorage.removeItem(`prevQuestions-${roomId}`);
-                      localStorage.removeItem('teamToken');
-                      localStorage.removeItem('myTeam');
-                      localStorage.removeItem('roomId');
-                      localStorage.removeItem('adminToken');
-                      
-                      // Navigate to home page
-                      navigate('/');
-                    }}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-lg font-semibold shadow-lg transition-all duration-200"
-                  >
-                    Go to Home
-                  </button>
-                </div>
-              ) : (
-                <>
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-xl font-bold text-gray-800">
-                      Next question in: <span className="text-blue-600">{countdown}</span>
-                    </p>
-                    <button
-                      onClick={togglePause}
-                      className="px-4 py-1 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                    >
-                      {isPaused ? "Resume" : "Pause"}
-                    </button>
-                  </div>
-
-                  {submitted && (
-                    <div className="mt-2">
-                      <h4 className="text-xl font-bold text-gray-800 mb-2">Results:</h4>
-                      <div className="bg-gray-50 rounded-lg p-3">
-                        <p className="text-base mb-1">
-                          Your answer: <strong className="text-gray-800">{selected}</strong>
-                        </p>
-                        {selected === question.options[question.correctOption] ? (
-                          <div className="text-green-600">
-                            <p className="text-lg font-bold mb-1">✅ Correct!</p>
-                            <p className="text-base mb-1">
-                              +1 point for{" "}
-                              <strong className="text-gray-800">
-                                {myTeam}
-                              </strong>
-                            </p>
-                            <p className="text-sm text-gray-700">{question.explanation}</p>
-                          </div>
-                        ) : (
-                          <div className="text-red-600">
-                            <p className="text-lg font-bold mb-1">❌ Incorrect</p>
-                            <p className="text-base mb-1">
-                              Correct answer:{" "}
-                              <strong className="text-gray-800">
-                                {question.options[question.correctOption]}
-                              </strong>
-                            </p>
-                            <p className="text-sm text-gray-700">{question.explanation}</p>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  )}
-                </>
-              )}
+        {/* Teams Status */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4 sm:mb-6">
+          <div className={`bg-gray-800 bg-opacity-50 p-3 sm:p-4 rounded-lg ${roomInfo.team1Connected ? "border-l-4 border-green-500" : "border-l-4 border-red-500"}`}>
+            <div className="flex justify-between items-center">
+              <h2 className="text-lg sm:text-xl font-semibold text-blue-400 flex items-center">
+                {roomInfo.team1}
+                {myTeam === roomInfo.team1 && !isAdmin && (
+                  <span className="ml-2 bg-blue-600 text-white text-xs font-medium px-2 py-0.5 rounded">You</span>
+                )}
+              </h2>
+              <div className="flex items-center">
+                {roomInfo.team1Connected ? (
+                  <span className="text-green-400 text-sm sm:text-base flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Connected
+                  </span>
+                ) : (
+                  <span className="text-red-400 text-sm sm:text-base flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    Waiting
+                  </span>
+                )}
+              </div>
             </div>
+            {isAdmin && (
+              <div className="mt-2 text-xs sm:text-sm text-gray-400 flex items-center gap-4">
+                Share link: 
+                <button
+                  onClick={() => {
+                    const team1Link = `${window.location.origin}/join/${roomId}?token=${team1Token}`;
+                    navigator.clipboard.writeText(team1Link);
+                    toast.success(`${roomInfo.team1} link copied!`);
+                  }}
+                  className="ml-1 text-blue-400 hover:text-blue-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </div>
+          <div className={`bg-gray-800 bg-opacity-50 p-3 sm:p-4 rounded-lg ${roomInfo.team2Connected ? "border-r-4 border-green-500" : "border-r-4 border-red-500"}`}>
+            <div className="flex justify-between items-center">
+              <h2 className="text-lg sm:text-xl font-semibold text-red-400 flex items-center">
+                {roomInfo.team2}
+                {myTeam === roomInfo.team2 && !isAdmin && (
+                  <span className="ml-2 bg-red-600 text-white text-xs font-medium px-2 py-0.5 rounded">You</span>
+                )}
+              </h2>
+              <div className="flex items-center">
+                {roomInfo.team2Connected ? (
+                  <span className="text-green-400 text-sm sm:text-base flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Connected
+                  </span>
+                ) : (
+                  <span className="text-red-400 text-sm sm:text-base flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    Waiting
+                  </span>
+                )}
+              </div>
+            </div>
+            {isAdmin && (
+              <div className="mt-2 text-xs sm:text-sm text-gray-400 flex items-center gap-4">
+                Share link: 
+                <button
+                  onClick={() => {
+                    const team2Link = `${window.location.origin}/join/${roomId}?token=${team2Token}`;
+                    navigator.clipboard.writeText(team2Link);
+                    toast.success(`${roomInfo.team2} link copied!`);
+                  }}
+                  className="ml-1 text-blue-400 hover:text-blue-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                  </svg>
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Waiting for Teams */}
+        {waitingForOtherTeam && !roomInfo.gameStarted && (
+          <div className="bg-yellow-900 bg-opacity-20 p-4 rounded-lg mb-6 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-yellow-500 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 className="text-xl font-bold mb-2">Waiting for both teams to connect</h2>
+            <p className="text-gray-300 mb-4">The game will be ready to start once both teams have joined the room.</p>
+            {isAdmin && (
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                <button
+                  onClick={() => {
+                    const team1Link = `${window.location.origin}/join/${roomId}?token=${team1Token}`;
+                    navigator.clipboard.writeText(team1Link);
+                    toast.success(`${roomInfo.team1} link copied!`);
+                  }}
+                  className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors"
+                >
+                  Copy Team 1 Link
+                </button>
+                <button
+                  onClick={() => {
+                    const team2Link = `${window.location.origin}/join/${roomId}?token=${team2Token}`;
+                    navigator.clipboard.writeText(team2Link);
+                    toast.success(`${roomInfo.team2} link copied!`);
+                  }}
+                  className="w-full sm:w-auto px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-white font-medium transition-colors"
+                >
+                  Copy Team 2 Link
+                </button>
+              </div>
+            )}
           </div>
         )}
+
+        {/* Tug of War Game */}
+        <div className="flex-grow">
+          {roomInfo.gameStarted ? (
+            <>
+              {/* Tug of War Visualization */}
+              <TugOfWarQuiz
+                teamAnswering={lastCorrectTeam}
+                ropePosition={roomInfo.ropePosition}
+                team1={roomInfo.team1}
+                team2={roomInfo.team2}
+                winner={roomInfo.winner}
+                onReset={resetGame}
+                myTeam={myTeam}
+                team1Score={roomInfo.team1Score || 0}
+                team2Score={roomInfo.team2Score || 0}
+              />
+
+              {/* Quiz Section */}
+              {!isAdmin && !roomInfo.winner && (
+                <div className="mt-6 bg-gray-800 bg-opacity-50 p-4 rounded-lg">
+                  {question ? (
+                    <>
+                      {/* Question */}
+                      <div className="mb-4">
+                        <h3 className="text-lg sm:text-xl font-semibold mb-2">Question:</h3>
+                        <p className="text-base sm:text-lg bg-gray-700 bg-opacity-50 p-3 rounded-lg">{question.question}</p>
+                      </div>
+
+                      {/* Options */}
+                      <div className="mb-4">
+                        <h3 className="text-lg font-semibold mb-2">Options:</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                          {question.options?.map((opt, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setSelected(opt)}
+                              disabled={submitted}
+                              className={`p-3 rounded-lg text-left transition-all ${
+                                selected === opt
+                                  ? "bg-blue-600 text-white"
+                                  : "bg-gray-700 hover:bg-gray-600 text-gray-200"
+                              } ${submitted ? "cursor-not-allowed opacity-70" : ""}`}
+                            >
+                              {opt}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Submit Button */}
+                      <div className="flex justify-center">
+                        <button
+                          onClick={handleSubmit}
+                          disabled={!selected || submitted}
+                          className={`px-6 py-2 rounded-lg font-semibold ${
+                            !selected || submitted
+                              ? "bg-gray-600 cursor-not-allowed"
+                              : "bg-green-600 hover:bg-green-700"
+                          }`}
+                        >
+                          {submitted ? "Submitting..." : "Submit Answer"}
+                        </button>
+                      </div>
+
+                      {/* Results */}
+                      {showResults && (
+                        <div className={`mt-4 p-3 rounded-lg ${
+                          selected === question.options[question.correctOption] ? "bg-green-900 bg-opacity-30" : "bg-red-900 bg-opacity-30"
+                        }`}>
+                          <h3 className="font-semibold mb-2">Result:</h3>
+                          {selected === question.options[question.correctOption] ? (
+                            <p className="text-green-400 flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                              </svg>
+                              Correct! The answer is: {question.options[question.correctOption]}
+                            </p>
+                          ) : (
+                            <p className="text-red-400 flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                              </svg>
+                              Incorrect. The correct answer is: {question.options[question.correctOption]}
+                            </p>
+                          )}
+                          {question.explanation && (
+                            <div className="mt-2 text-gray-300 text-sm">
+                              <p><strong>Explanation:</strong> {question.explanation}</p>
+                            </div>
+                          )}
+                          <div className="mt-3 text-center">
+                            <p className="text-sm text-gray-400 mb-2">Next question in {countdown} seconds...</p>
+                            <div className="w-full bg-gray-700 rounded-full h-2.5">
+                              <div
+                                className="bg-blue-600 h-2.5 rounded-full transition-all duration-1000"
+                                style={{ width: `${(countdown / 5) * 100}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center py-8">
+                      <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+                      <p className="text-lg text-gray-300">Loading question...</p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Admin View */}
+              {isAdmin && !roomInfo.winner && (
+                <div className="mt-6 bg-gray-800 bg-opacity-50 p-4 rounded-lg">
+                  <h3 className="text-xl font-semibold mb-4">Admin Controls</h3>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div className="bg-gray-700 bg-opacity-50 p-3 rounded-lg">
+                      <h4 className="font-semibold mb-2 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        Game Status
+                      </h4>
+                      <ul className="text-sm space-y-2">
+                        <li className="flex justify-between">
+                          <span>Team 1 ({roomInfo.team1}):</span>
+                          <span className={roomInfo.team1Connected ? "text-green-400" : "text-red-400"}>
+                            {roomInfo.team1Connected ? "Connected" : "Disconnected"}
+                          </span>
+                        </li>
+                        <li className="flex justify-between">
+                          <span>Team 2 ({roomInfo.team2}):</span>
+                          <span className={roomInfo.team2Connected ? "text-green-400" : "text-red-400"}>
+                            {roomInfo.team2Connected ? "Connected" : "Disconnected"}
+                          </span>
+                        </li>
+                        <li className="flex justify-between">
+                          <span>Rope Position:</span>
+                          <span>{roomInfo.ropePosition}</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-gray-700 bg-opacity-50 p-3 rounded-lg">
+                      <h4 className="font-semibold mb-2 flex items-center justify-center pt-10">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        Game Controls
+                      </h4>
+                      <div className="space-y-2 px-40 pb-10">
+                        
+                        <button
+                          onClick={resetGame}
+                          className="w-full px-3 py-1.5 bg-red-600 hover:bg-red-700 rounded text-sm font-medium"
+                        >
+                          Reset Game
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Game Log */}
+                  {/* <div className="bg-gray-700 bg-opacity-50 p-3 rounded-lg">
+                    <h4 className="font-semibold mb-2 flex items-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                      </svg>
+                      Game Log
+                    </h4>
+                    <div className="max-h-40 overflow-y-auto text-sm bg-gray-800 p-2 rounded">
+                      {prevQuestions.length > 0 ? (
+                        <ul className="space-y-2">
+                          {prevQuestions.map((q, index) => (
+                            <li key={index} className="border-b border-gray-700 pb-1">
+                              <p><strong>Q{index + 1}:</strong> {q.question}</p>
+                              <p className={`text-xs ${q.team1Correct ? "text-green-400" : "text-red-400"}`}>
+                                {roomInfo.team1}: {q.team1Correct ? "Correct" : "Incorrect"}
+                              </p>
+                              <p className={`text-xs ${q.team2Correct ? "text-green-400" : "text-red-400"}`}>
+                                {roomInfo.team2}: {q.team2Correct ? "Correct" : "Incorrect"}
+                              </p>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-gray-400 italic">No questions answered yet</p>
+                      )}
+                    </div>
+                  </div> */}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="bg-gray-800 bg-opacity-50 p-4 rounded-lg text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-blue-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <h2 className="text-2xl font-bold mb-2">Ready to Start</h2>
+              <p className="text-gray-300 mb-6">The game is ready to begin. Wait for the admin to start the game.</p>
+              
+              {isAdmin && !waitingForOtherTeam && (
+                <button
+                  onClick={startGame}
+                  className="px-6 py-3 bg-green-600 hover:bg-green-700 rounded-lg text-white font-semibold transition-colors"
+                >
+                  Start Game
+                </button>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
