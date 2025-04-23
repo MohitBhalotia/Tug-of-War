@@ -82,58 +82,26 @@ export default function GameRoom() {
 
   // Connect to socket server and join room
   useEffect(() => {
-    // Enhanced Socket.io configuration for better compatibility with serverless platforms
-    const newSocket = io(SOCKET_SERVER_URL, {
-      transports: ['websocket', 'polling'], // Try WebSocket first, fallback to polling
-      reconnectionAttempts: 5,             // Try to reconnect 5 times
-      reconnectionDelay: 1000,             // Start with 1s delay between reconnection attempts
-      reconnectionDelayMax: 5000,          // Maximum delay between reconnections
-      timeout: 20000,                      // Connection timeout
-      forceNew: true                       // Force a new connection
-    });
-    
+    const newSocket = io(SOCKET_SERVER_URL);
     setSocket(newSocket);
     socketRef.current = newSocket;
     
-    // Connection event handlers
-    newSocket.on('connect', () => {
-      console.log('Socket connected:', newSocket.id);
-      
-      // Join the room after successful connection
-      if (isAdmin) {
-        newSocket.emit("join_room", { 
-          roomId, 
-          team: adminName,
-          isAdmin: true,
-          adminToken: localStorage.getItem("adminToken") // Send admin token for server-side verification
-        });
-      } else {
-        newSocket.emit("join_room", { 
-          roomId, 
-          team: myTeam,
-          isAdmin: false,
-          teamToken: teamToken // Include the team token for secure access
-        });
-      }
-    });
-    
-    newSocket.on('connect_error', (err) => {
-      console.error('Connection error:', err);
-      toast.error("Connection error", {
-        description: "Could not connect to the game server. Retrying..."
+    // Join the room
+    if (isAdmin) {
+      newSocket.emit("join_room", { 
+        roomId, 
+        team: adminName,
+        isAdmin: true,
+        adminToken: localStorage.getItem("adminToken") // Send admin token for server-side verification
       });
-    });
-    
-    newSocket.on('disconnect', (reason) => {
-      console.log('Socket disconnected:', reason);
-      if (reason === 'io server disconnect') {
-        // The server has forcefully disconnected the socket
-        toast.error("Disconnected from server", {
-          description: "The server has disconnected. Attempting to reconnect..."
-        });
-        newSocket.connect(); // Manually reconnect
-      }
-    });
+    } else {
+      newSocket.emit("join_room", { 
+        roomId, 
+        team: myTeam,
+        isAdmin: false,
+        teamToken: teamToken // Include the team token for secure access
+      });
+    }
     
     // Set up event listeners
     newSocket.on("joined_room", ({ roomId, roomInfo, isAdmin }) => {
