@@ -1,0 +1,87 @@
+import { useState, useEffect } from "react";
+
+export default function TugOfWarSocket({ teamAnswering, ropePosition, team1, team2, winner, onReset }) {
+  // State to track winner and messages
+  const [message, setMessage] = useState("");
+
+  // Check for winner when ropePosition changes
+  useEffect(() => {
+    if (ropePosition <= -50) {
+      setMessage(`${team1} wins!`);
+    } else if (ropePosition >= 50) {
+      setMessage(`${team2} wins!`);
+    } else {
+      setMessage("");
+    }
+  }, [ropePosition, team1, team2]);
+
+  return (
+    <div className="w-full max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+      <h1 className="text-3xl font-bold text-center mb-6">Tug of War Quiz</h1>
+
+      {/* Team names and score display */}
+      <div className="flex justify-between mb-4">
+        <div className="text-2xl font-bold text-blue-600">
+          {team1}{ropePosition <= -50 && "🏆"}
+        </div>
+        <div className="text-2xl font-bold text-red-600">
+          {team2}{ropePosition >= 50 && "🏆"}
+        </div>
+      </div>
+
+      {/* Tug of war rope visualization */}
+      <div className="relative h-20 mb-8">
+        {/* Field */}
+        <div className="absolute w-full h-8 bg-green-200 rounded-lg top-6 border-2 border-green-600">
+          {/* Center line */}
+          <div className="absolute left-1/2 h-full w-1 bg-green-800 transform -translate-x-1/2"></div>
+
+          {/* Team A side */}
+          <div className="absolute left-0 top-0 h-full w-1/2 flex items-center justify-start pl-4">
+            <span className="font-bold text-blue-600">{team1}</span>
+          </div>
+
+          {/* Team B side */}
+          <div className="absolute right-0 top-0 h-full w-1/2 flex items-center justify-end pr-4">
+            <span className="font-bold text-red-600">{team2}</span>
+          </div>
+        </div>
+
+        {/* The rope with handles - properly centered */}
+        <div className="absolute w-full h-20 flex items-center justify-center">
+          {/* This container helps position the rope system */}
+          <div
+            className="relative w-3/4 h-20 flex items-center transition-transform duration-1000 ease-in-out"
+            style={{
+              transform: `translateX(${ropePosition}%)`
+            }}
+          >
+            {/* The rope itself */}
+            <div className="absolute w-full h-3 bg-amber-800 rounded-full"></div>
+
+            {/* Team A handle (left) */}
+            <div className="absolute left-0 h-16 w-6 bg-amber-900 rounded-lg transform -translate-x-6"></div>
+
+            {/* Team B handle (right) */}
+            <div className="absolute right-0 h-16 w-6 bg-amber-900 rounded-lg transform translate-x-6"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Display winner message and reset button if applicable */}
+      {winner && (
+        <div className="text-center">
+          <div className="text-xl font-bold text-green-600 mb-4">
+            {message}
+          </div>
+          <button
+            onClick={onReset}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Start New Game
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}

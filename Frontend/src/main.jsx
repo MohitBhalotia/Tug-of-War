@@ -6,6 +6,5 @@ import TugOfWar from "./components/TugOfWar.jsx";
 createRoot(document.getElementById("root")).render(
   <>
     <App />
-    {/* <TugOfWar /> */}
   </>
 );
