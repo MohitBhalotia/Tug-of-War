@@ -1,223 +1,556 @@
 {
-    "technical_questions_json": {
-      "quiz": [
-        {
-          "question": "Which is the smallest country in the world by area?",
-          "options": ["Monaco", "Vatican City", "Nauru", "Liechtenstein"],
-          "correctOption": 1,
-          "explanation": "Vatican City is the smallest country in the world by area, measuring about 44 hectares."
-        },
-        {
-          "question": "What is the capital of Australia?",
-          "options": ["Sydney", "Melbourne", "Perth", "Canberra"],
-          "correctOption": 3,
-          "explanation": "Canberra is the capital of Australia, chosen as a compromise between Sydney and Melbourne."
-        },
-        {
-          "question": "Which Indian state is known as the 'Land of Five Rivers'?",
-          "options": ["Haryana", "Punjab", "Rajasthan", "Gujarat"],
-          "correctOption": 1,
-          "explanation": "Punjab is called the 'Land of Five Rivers' due to the five major rivers flowing through it."
-        },
-        {
-          "question": "What’s the full form of GPS?",
-          "options": ["Global Positioning System", "General Power Service", "Global Port Security", "General Position Satellite"],
-          "correctOption": 0,
-          "explanation": "GPS stands for Global Positioning System, used for location tracking and navigation."
-        },
-        {
-          "question": "Which cartoon character lives in a pineapple under the sea?",
-          "options": ["Dora the Explorer", "Spongebob Squarepants", "Scooby Doo", "Shinchan"],
-          "correctOption": 1,
-          "explanation": "Spongebob Squarepants is the character who lives in a pineapple under the sea."
-        },
-        {
-          "question": "What is the name of Harry Potter’s pet owl?",
-          "options": ["Crookshanks", "Hedwig", "Scabbers", "Errol"],
-          "correctOption": 1,
-          "explanation": "Hedwig is Harry Potter's loyal snowy owl in the series."
-        },
-        {
-          "question": "What is the national game of India?",
-          "options": ["Cricket", "Hockey", "Football", "Kabaddi"],
-          "correctOption": 1,
-          "explanation": "Hockey is widely considered the national game of India."
-        },
-        {
-          "question": "What is the name of the fairy in Peter Pan?",
-          "options": ["Tinker Bell", "Dobby", "Twinkle", "Glimmer"],
-          "correctOption": 0,
-          "explanation": "Tinker Bell is the famous fairy companion of Peter Pan."
-        },
-        {
-          "question": "Which country invented ice cream?",
-          "options": ["Italy", "China", "France", "USA"],
-          "correctOption": 1,
-          "explanation": "China is credited with inventing a form of early ice cream using milk and rice."
-        },
-        {
-          "question": "How many hearts does an octopus have?",
-          "options": ["One", "Two", "Three", "Four"],
-          "correctOption": 2,
-          "explanation": "Octopuses have three hearts—two pump blood to the gills and one to the rest of the body."
-        },
-        {
-          "question": "What is the national animal of Scotland?",
-          "options": ["Unicorn", "Red Deer", "Lion", "Wolf"],
-          "correctOption": 0,
-          "explanation": "The unicorn is the official national animal of Scotland, symbolizing purity and strength."
-        },
-        {
-          "question": "What’s the name of Shinchan’s dog?",
-          "options": ["Shiro", "Kuro", "Toro", "Choco"],
-          "correctOption": 0,
-          "explanation": "Shiro is Shinchan's cute white pet dog."
-        },
-        {
-          "question": "In Phineas and Ferb, what is the name of their secret agent platypus?",
-          "options": ["Perry", "Larry", "Barry", "Harry"],
-          "correctOption": 0,
-          "explanation": "Perry the Platypus is the secret agent in Phineas and Ferb."
-        },
-        {
-          "question": "In Shinchan, what’s the name of the superhero Shinchan watches?",
-          "options": ["Hero Boy", "Action Kamen", "Superman", "Laser X"],
-          "correctOption": 1,
-          "explanation": "Action Kamen is Shinchan’s favorite superhero."
-        },
-        {
-          "question": "Which language has the most native speakers in the world?",
-          "options": ["Spanish", "English", "Mandarin Chinese", "Hindi"],
-          "correctOption": 2,
-          "explanation": "Mandarin Chinese has the highest number of native speakers in the world."
-        },
-        {
-          "question": "What year did the Titanic sink?",
-          "options": ["1910", "1912", "1914", "1915"],
-          "correctOption": 1,
-          "explanation": "The Titanic sank in 1912 during its maiden voyage."
-        },
-        {
-          "question": "Who is the founder of Microsoft?",
-          "options": ["Jeff Bezos", "Steve Jobs", "Larry Page", "Bill Gates"],
-          "correctOption": 3,
-          "explanation": "Bill Gates co-founded Microsoft in 1975 with Paul Allen."
-        },
-        {
-          "question": "What is the capital of Canada?",
-          "options": ["Toronto", "Vancouver", "Ottawa", "Montreal"],
-          "correctOption": 2,
-          "explanation": "Ottawa is the capital city of Canada."
-        },
-        {
-          "question": "Who invented the light bulb?",
-          "options": ["Nikola Tesla", "Alexander Bell", "Thomas Edison", "James Watt"],
-          "correctOption": 2,
-          "explanation": "Thomas Edison is credited with inventing the first practical light bulb."
-        },
-        {
-          "question": "Who is credited with inventing the World Wide Web?",
-          "options": ["Steve Jobs", "Tim Berners-Lee", "Bill Gates", "Larry Page"],
-          "correctOption": 1,
-          "explanation": "Tim Berners-Lee invented the World Wide Web in 1989."
-        },
-        {
-          "question": "Who invented the telephone?",
-          "options": ["Thomas Edison", "Alexander Graham Bell", "Marconi", "Tesla"],
-          "correctOption": 1,
-          "explanation": "Alexander Graham Bell is credited with inventing the telephone."
-        },
-        {
-          "question": "The airplane was invented by which brothers?",
-          "options": ["Wright Brothers", "Lumière Brothers", "Smith Brothers", "Montgolfier Brothers"],
-          "correctOption": 0,
-          "explanation": "The Wright Brothers invented and flew the first airplane in 1903."
-        },
-        {
-          "question": "Which programming language was created by James Gosling at Sun Microsystems in 1995?",
-          "options": ["C++", "Python", "Java", "Ruby"],
-          "correctOption": 2,
-          "explanation": "Java was created by James Gosling at Sun Microsystems in 1995."
-        },
-        {
-          "question": "Which state in India is known as the 'Land of the Rising Sun'?",
-          "options": ["Arunachal Pradesh", "Assam", "Meghalaya", "Nagaland"],
-          "correctOption": 0,
-          "explanation": "Arunachal Pradesh is known as the 'Land of the Rising Sun' in India."
-        },
-        {
-          "question": "Which of the following is not a classical dance form of India?",
-          "options": ["Bharatnatyam", "Kathak", "Odissi", "Bhangra"],
-          "correctOption": 3,
-          "explanation": "Bhangra is a folk dance, not a classical dance form of India."
-        },
-        {
-          "question": "What comes next in the series: 2, 6, 12, 20, 30...?",
-          "options": ["40", "42", "48", "50"],
-          "correctOption": 1,
-          "explanation": "The differences are increasing by 2 each time: +4, +6, +8, +10 → next is +12 → 30+12=42."
-        },
-        {
-          "question": "Which number logically replaces the question mark? 2, 5, 10, 17, ?",
-          "options": ["24", "26", "30", "34"],
-          "correctOption": 1,
-          "explanation": "The pattern is +3, +5, +7, +9 → 17+9=26."
-        },
-        {
-          "question": "If a clock takes 5 seconds to strike 5, how long will it take to strike 10?",
-          "options": ["10 seconds", "20 seconds", "15 seconds", "50 seconds"],
-          "correctOption": 1,
-          "explanation": "There are 4 gaps between 5 strikes = 5 sec → 9 gaps between 10 strikes = 11.25 sec (approx double), but assuming same gap: 9 × (5/4) = ~11.25, but based on answer given, it's 20 sec (maybe constant time per strike)."
-        },
-        {
-          "question": "Which animated character has a pet tiger named Shere Khan?",
-          "options": ["Mowgli", "Aladdin", "Simba", "Tarzan"],
-          "correctOption": 0,
-          "explanation": "Shere Khan is the tiger antagonist in The Jungle Book, where Mowgli is the main character."
-        },
-        {
-          "question": "Which animal has the longest lifespan?",
-          "options": ["Elephant", "Blue whale", "Tortoise", "Parrot"],
-          "correctOption": 2,
-          "explanation": "Tortoises, especially the Galápagos giant tortoise, are known for living over 100 years."
-        },
-        {
-          "question": "Which is the largest species of big cat?",
-          "options": ["Tiger", "Lion", "Leopard", "Jaguar"],
-          "correctOption": 0,
-          "explanation": "The tiger is the largest species of big cat in the world."
-        },
-        {
-          "question": "Which animal is known to have the longest migration route?",
-          "options": ["Humpback Whale", "Arctic Tern", "Elephant", "Monarch Butterfly"],
-          "correctOption": 1,
-          "explanation": "Arctic Terns have the longest migration route, flying from the Arctic to the Antarctic."
-        },
-        {
-          "question": "What is the fastest land animal?",
-          "options": ["Leopard", "Lion", "Cheetah", "Gazelle"],
-          "correctOption": 2,
-          "explanation": "The cheetah is the fastest land animal, capable of speeds up to 70 mph."
-        },
-        {
-          "question": "Who was the first woman to win a Nobel Prize?",
-          "options": ["Marie Curie", "Rosa Parks", "Helen Keller", "Malala Yousafzai"],
-          "correctOption": 0,
-          "explanation": "Marie Curie was the first woman to win a Nobel Prize in 1903 for Physics."
-        },
-        {
-          "question": "Who painted the 'Mona Lisa'?",
-          "options": ["Vincent van Gogh", "Claude Monet", "Leonardo da Vinci", "Pablo Picasso"],
-          "correctOption": 2,
-          "explanation": "The 'Mona Lisa' was painted by Leonardo da Vinci."
-        },
-        {
-          "question": "In which year did India win its first cricket World Cup?",
-          "options": ["1983", "1992", "2003", "2011"],
-          "correctOption": 0,
-          "explanation": "India won its first Cricket World Cup in 1983 under Kapil Dev’s captaincy."
-        }
-      ]
-    }
+  "technical_questions_json": {
+    "quiz": [
+      {
+        "correctOption": 2,
+        "explanation": "Sachin Tendulkar is known as the Master Blaster for his prolific scoring.",
+        "options": [
+          "Virat Kohli",
+          "MS Dhoni",
+          "Sachin Tendulkar",
+          "Rahul Dravid"
+        ],
+        "question": "Which Indian cricketer is known as the 'Master Blaster'?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "In football, a corner kick is awarded when the defending team puts the ball out of play over their own goal line.",
+        "options": [
+          "Corner kick",
+          "Goal kick",
+          "Free kick",
+          "Penalty kick"
+        ],
+        "question": "What is awarded when the ball goes out of play over the goal line, last touched by a defending player?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "The Ashes is a Test cricket series played between England and Australia.",
+        "options": [
+          "India and Pakistan",
+          "South Africa and New Zealand",
+          "England and Australia",
+          "West Indies and Sri Lanka"
+        ],
+        "question": "Which two countries compete in the famous Test cricket series known as 'The Ashes'?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Pelé is widely regarded as one of the greatest football players of all time, known for his incredible skill and goal-scoring record.",
+        "options": [
+          "Pelé",
+          "Diego Maradona",
+          "Lionel Messi",
+          "Cristiano Ronaldo"
+        ],
+        "question": "Which legendary Brazilian football player is often referred to as 'The King'?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "A 'wide' is called in cricket when the bowler bowls the ball so far from the batsman that it is deemed unplayable.",
+        "options": [
+          "No ball",
+          "Wide",
+          "Leg bye",
+          "Bye"
+        ],
+        "question": "In cricket, what is the term for a delivery that is bowled too far from the batsman?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "The World Cup is the most prestigious international football tournament.",
+        "options": [
+          "World Cup",
+          "European Championship",
+          "Copa America",
+          "Africa Cup of Nations"
+        ],
+        "question": "What is the name of the quadrennial international football tournament contested by the senior men's national teams of the members of the Fédération Internationale de Football Association (FIFA)?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Shane Warne was an Australian leg-spin bowler considered one of the greatest in the history of the sport.",
+        "options": [
+          "Fast bowler",
+          "Off-spin bowler",
+          "Medium-pace bowler",
+          "Leg-spin bowler"
+        ],
+        "question": "What type of bowler was the legendary Australian cricketer Shane Warne?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Offside is a rule in football that restricts players from being in an advantageous position when the ball is played.",
+        "options": [
+          "Handball",
+          "Offside",
+          "Foul",
+          "Dive"
+        ],
+        "question": "What is the football rule that prevents players from being in an attacking position ahead of the ball and the second-last defender?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Don Bradman is considered the greatest batsman of all time with an unparalleled Test average of 99.94.",
+        "options": [
+          "Don Bradman",
+          "Jack Hobbs",
+          "Viv Richards",
+          "Garry Sobers"
+        ],
+        "question": "Which cricketer holds the record for the highest batting average in Test cricket?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "A yellow card is a caution given by a referee to a player in football.",
+        "options": [
+          "Red card",
+          "Green card",
+          "Yellow card",
+          "Blue card"
+        ],
+        "question": "In football, what color card is shown to a player for a caution?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Gone with the Wind is a classic film set during the American Civil War.",
+        "options": [
+          "Casablanca",
+          "The Wizard of Oz",
+          "It's a Wonderful Life",
+          "Gone with the Wind"
+        ],
+        "question": "Which classic Hollywood film is set during the American Civil War and features the iconic character Scarlett O'Hara?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Shah Rukh Khan is often referred to as the 'King of Bollywood'.",
+        "options": [
+          "Shah Rukh Khan",
+          "Salman Khan",
+          "Aamir Khan",
+          "Amitabh Bachchan"
+        ],
+        "question": "Which Bollywood actor is famously known as the 'King Khan'?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "The Godfather is a highly acclaimed film about the Corleone crime family.",
+        "options": [
+          "Goodfellas",
+          "The Godfather",
+          "Scarface",
+          "Pulp Fiction"
+        ],
+        "question": "Which iconic Hollywood film, directed by Francis Ford Coppola, tells the story of the Corleone crime family?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Dilwale Dulhania Le Jayenge is a hugely popular and long-running Bollywood film.",
+        "options": [
+          "Sholay",
+          "Mughal-e-Azam",
+          "Dilwale Dulhania Le Jayenge",
+          "Lagaan"
+        ],
+        "question": "Which Bollywood film, released in 1995, holds the record for the longest theatrical run?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "The Shawshank Redemption is a highly rated film about two inmates who bond over a number of years.",
+        "options": [
+          "Forrest Gump",
+          "Pulp Fiction",
+          "Fight Club",
+          "The Shawshank Redemption"
+        ],
+        "question": "According to IMDb's top 250 list, which film is consistently ranked as the number one movie of all time?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Amitabh Bachchan is one of the most influential actors in the history of Indian cinema.",
+        "options": [
+          "Amitabh Bachchan",
+          "Rajesh Khanna",
+          "Dilip Kumar",
+          "Dev Anand"
+        ],
+        "question": "Which legendary Bollywood actor is known as the 'Shahenshah of Bollywood'?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "ET the Extra-Terrestrial is a classic film about a friendly alien.",
+        "options": [
+          "Close Encounters of the Third Kind",
+          "E.T. the Extra-Terrestrial",
+          "Alien",
+          "Predator"
+        ],
+        "question": "Which Steven Spielberg film features a friendly alien who is trying to 'phone home'?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Slumdog Millionaire is a British film set in India that won multiple Academy Awards.",
+        "options": [
+          "Monsoon Wedding",
+          "Lunchbox",
+          "Slumdog Millionaire",
+          "Queen"
+        ],
+        "question": "Which British drama film, directed by Danny Boyle, is set in India and won the Academy Award for Best Picture in 2009?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Titanic is a romantic disaster film based on the sinking of the RMS Titanic.",
+        "options": [
+          "The Notebook",
+          "La La Land",
+          "A Star Is Born",
+          "Titanic"
+        ],
+        "question": "Which epic romance and disaster film, directed by James Cameron, is set against the backdrop of a tragic maiden voyage?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Baahubali is a highly successful Indian fantasy film series.",
+        "options": [
+          "Baahubali",
+          "Dangal",
+          "PK",
+          "Sultan"
+        ],
+        "question": "Which two-part Indian epic film series, directed by S. S. Rajamouli, is known for its grand scale and visual effects?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Mario is the main character in the Super Mario series.",
+        "options": [
+          "Luigi",
+          "Yoshi",
+          "Mario",
+          "Toad"
+        ],
+        "question": "What is the name of the iconic plumber who is the main protagonist of the Super Mario video game series?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Minecraft is known for its blocky, open-world gameplay.",
+        "options": [
+          "Fortnite",
+          "Minecraft",
+          "Roblox",
+          "Terraria"
+        ],
+        "question": "Which popular sandbox video game allows players to build and explore vast procedurally generated worlds made of blocks?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "The Legend of Zelda series features the protagonist Link.",
+        "options": [
+          "Link",
+          "Zelda",
+          "Ganondorf",
+          "Navi"
+        ],
+        "question": "What is the name of the main hero in The Legend of Zelda video game series?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Grand Theft Auto V is set in the fictional state of San Andreas, which is based on Southern California.",
+        "options": [
+          "Liberty City",
+          "Vice City",
+          "Los Santos",
+          "San Andreas"
+        ],
+        "question": "In the video game Grand Theft Auto V, what is the name of the fictional state where the game takes place?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Pac-Man is a classic arcade game where the player controls a character eating dots and avoiding ghosts.",
+        "options": [
+          "Space Invaders",
+          "Pac-Man",
+          "Donkey Kong",
+          "Street Fighter"
+        ],
+        "question": "Which classic arcade game involves a yellow circular character eating dots while being chased by colorful ghosts?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Call of Duty is a popular first-person shooter series.",
+        "options": [
+          "The Sims",
+          "World of Warcraft",
+          "Call of Duty",
+          "Candy Crush Saga"
+        ],
+        "question": "Which popular video game franchise is known for its military-themed first-person shooter gameplay?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Pokémon is a media franchise centered around catching and battling creatures.",
+        "options": [
+          "Pokémon",
+          "Digimon",
+          "Yu-Gi-Oh!",
+          "Dragon Ball"
+        ],
+        "question": "Which popular video game series features creatures that players catch, train, and battle with?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Red Dead Redemption 2 is a Western-themed action-adventure game.",
+        "options": [
+          "Assassin's Creed",
+          "The Witcher 3: Wild Hunt",
+          "Cyberpunk 2077",
+          "Red Dead Redemption 2"
+        ],
+        "question": "Which acclaimed video game is set in a fictionalized version of the American Old West and follows the story of Arthur Morgan?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Fortnite is known for its battle royale mode.",
+        "options": [
+          "Apex Legends",
+          "Fortnite",
+          "PUBG",
+          "Call of Duty: Warzone"
+        ],
+        "question": "Which popular free-to-play battle royale game developed by Epic Games features building mechanics?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "The main character in the God of War series is Kratos.",
+        "options": [
+          "Zeus",
+          "Hercules",
+          "Kratos",
+          "Ares"
+        ],
+        "question": "What is the name of the Spartan warrior who is the protagonist of the God of War video game series?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Chess is a strategic board game played between two players.",
+        "options": [
+          "Checkers",
+          "Go",
+          "Mahjong",
+          "Chess"
+        ],
+        "question": "Which classic two-player board game involves moving pieces like kings, queens, and rooks on a checkered board with the goal of checkmating the opponent's king?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Scrabble is a word game where players form words on a board.",
+        "options": [
+          "Scrabble",
+          "Boggle",
+          "Words With Friends",
+          "Pictionary"
+        ],
+        "question": "What is the name of the popular word game where players score points by placing tiles with single letters onto a game board to form words?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Monopoly is a board game about buying and selling properties.",
+        "options": [
+          "Risk",
+          "Monopoly",
+          "Catan",
+          "Ticket to Ride"
+        ],
+        "question": "Which classic board game involves buying, selling, and trading properties with the goal of bankrupting opponents?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Poker is a card game where players bet based on the strength of their hands.",
+        "options": [
+          "Blackjack",
+          "Roulette",
+          "Poker",
+          "Baccarat"
+        ],
+        "question": "Which popular card game involves players betting on the value of their hands, with various variations like Texas Hold'em?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Pictionary is a game where players draw clues for their teammates to guess.",
+        "options": [
+          "Charades",
+          "Taboo",
+          "Codenames",
+          "Pictionary"
+        ],
+        "question": "In which game do players draw pictures to represent words or phrases, and their teammates try to guess what they are drawing?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Solitaire is a single-player card game.",
+        "options": [
+          "Solitaire",
+          "Bridge",
+          "Rummy",
+          "Go Fish"
+        ],
+        "question": "What is the term for any card game played by a single person?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Clue is a mystery-solving board game.",
+        "options": [
+          "Life",
+          "Clue",
+          "Operation",
+          "Guess Who?"
+        ],
+        "question": "Which classic mystery board game involves players trying to determine which suspect committed the murder, with which weapon, and in which room?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Dominos is a game played with rectangular tiles.",
+        "options": [
+          "Mahjong",
+          "Backgammon",
+          "Dominos",
+          "Go"
+        ],
+        "question": "What is the name of the game played with rectangular tiles marked with spots, typically involving matching the spots on the ends of the tiles?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "Bingo is a game of chance where players mark numbers on cards.",
+        "options": [
+          "Lotto",
+          "Keno",
+          "Raffle",
+          "Bingo"
+        ],
+        "question": "Which game of chance involves players marking off numbers on cards as they are called out, aiming to be the first to complete a specific pattern?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Bridge is a trick-taking card game played by four players in two partnerships.",
+        "options": [
+          "Bridge",
+          "Poker",
+          "Blackjack",
+          "Rummy"
+        ],
+        "question": "Which partnership trick-taking card game is played by four players in two competing partnerships?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Chris Nolan is known for his complex, non-linear narratives.",
+        "options": [
+          "Steven Spielberg",
+          "Christopher Nolan",
+          "Quentin Tarantino",
+          "Martin Scorsese"
+        ],
+        "question": "Which director is known for films like 'Inception', 'Interstellar', and 'The Dark Knight' trilogy?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Dangal is a Bollywood film about wrestling.",
+        "options": [
+          "Cricket",
+          "Hockey",
+          "Wrestling",
+          "Badminton"
+        ],
+        "question": "The Bollywood film 'Dangal' is based on which sport?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Resident Evil is a survival horror game series.",
+        "options": [
+          "Survival horror",
+          "Role-playing game",
+          "Puzzle game",
+          "Racing game"
+        ],
+        "question": "What genre of video game is the 'Resident Evil' series primarily known for?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "The game of darts involves throwing darts at a circular board.",
+        "options": [
+          "Billiards",
+          "Bowling",
+          "Archery",
+          "Darts"
+        ],
+        "question": "Which game involves throwing small pointed missiles at a circular board?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "Lord of the Rings is a fantasy film series.",
+        "options": [
+          "Science Fiction",
+          "Fantasy",
+          "Horror",
+          "Comedy"
+        ],
+        "question": "What is the primary genre of 'The Lord of the Rings' film trilogy?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "Counter-Strike is a popular first-person shooter game.",
+        "options": [
+          "Real-time strategy",
+          "Role-playing game",
+          "First-person shooter",
+          "Sports game"
+        ],
+        "question": "What type of video game is 'Counter-Strike'?"
+      },
+      {
+        "correctOption": 0,
+        "explanation": "Snooker is a cue sport.",
+        "options": [
+          "Snooker",
+          "Squash",
+          "Table Tennis",
+          "Badminton"
+        ],
+        "question": "Which cue sport is played on a table with pockets using cues and colored balls?"
+      },
+      {
+        "correctOption": 3,
+        "explanation": "An epic film often features a grand scale and historical setting.",
+        "options": [
+          "Musical",
+          "Thriller",
+          "Romantic Comedy",
+          "Epic"
+        ],
+        "question": "What is a film genre characterized by a sweeping story, often historical, and a large scale production?"
+      },
+      {
+        "correctOption": 1,
+        "explanation": "World of Warcraft is a massively multiplayer online role-playing game.",
+        "options": [
+          "First-person shooter",
+          "MMORPG",
+          "Strategy game",
+          "Simulation game"
+        ],
+        "question": "What genre of video game is 'World of Warcraft'?"
+      },
+      {
+        "correctOption": 2,
+        "explanation": "A slam dunk is a high-scoring move in basketball.",
+        "options": [
+          "Touchdown",
+          "Home run",
+          "Slam dunk",
+          "Goal"
+        ],
+        "question": "In basketball, what is the term for forcefully throwing the ball down through the hoop?"
+      }
+    ]
   }
-  
+}
