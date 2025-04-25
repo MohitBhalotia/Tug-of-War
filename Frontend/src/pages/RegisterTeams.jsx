@@ -319,7 +319,6 @@ export default function RegisterTeams() {
                   <p className="text-sm text-gray-600 mb-1">Room ID:</p>
                   <div className="flex items-center justify-center">
                     <p className="text-xl font-bold text-blue-600 mr-2">{roomId}</p>
-                   
                   </div>
                 </div>
                 
