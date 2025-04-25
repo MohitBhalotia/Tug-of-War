@@ -173,7 +173,7 @@ io.on('connection', (socket) => {
     }
     
     const roomInfo = rooms.get(roomId);
-    const pullStrength = 5;
+    const pullStrength = 10;
     
     // Update rope position based on which team answered correctly
     if (teamAnswering === 'A') {

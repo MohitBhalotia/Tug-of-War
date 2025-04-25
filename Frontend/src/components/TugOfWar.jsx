@@ -14,7 +14,7 @@ export default function TugOfWarQuiz({ teamAnswering }) {
   const teamB=localStorage.getItem("team2");
 
   // Pull strength - how much the rope moves when a team answers correctly
-  const pullStrength = 5;
+  const pullStrength = 10;
 
   // Save rope position to localStorage whenever it changes
   useEffect(() => {
