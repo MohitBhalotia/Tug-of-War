@@ -319,17 +319,7 @@ export default function RegisterTeams() {
                   <p className="text-sm text-gray-600 mb-1">Room ID:</p>
                   <div className="flex items-center justify-center">
                     <p className="text-xl font-bold text-blue-600 mr-2">{roomId}</p>
-                    <button
-                      onClick={() => {
-                        navigator.clipboard.writeText(roomId);
-                        toast.success("Room ID copied to clipboard");
-                      }}
-                      className="text-blue-500 hover:text-blue-700"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                      </svg>
-                    </button>
+                   
                   </div>
                 </div>
                 
